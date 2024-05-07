@@ -4,6 +4,6 @@ Este es el Proyecto de Prácticas de la asignatura Interfaces Persona Computador
 Los participantes de este proyectos son:
 <br>-Alicia de Felipe Machancoses - adefel@etsinf.upv.es (27372357B)
 <br>-Unay David Figueroa - udfiguer@etsinf.upv.es (Y5773157X)
-<br>-Adolfo González Tamarit - agontam@etsinf.upv.es ()
+<br>-Adolfo González Tamarit - agontam@etsinf.upv.es (21802734E)
 
 Los participantes estamos matriculados en el grupo L1-2B de IPC.
