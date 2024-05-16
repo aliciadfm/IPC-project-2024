@@ -24,7 +24,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-padding: 0 10 0 0;
     -fx-font-weight: bold;
 }
+.atributosRegistro{
+    -fx-font-size: 15;
+    -fx-text-fill:#6EE0AE;
+    -fx-padding: 0 10 0 0;
+    -fx-font-weight: bold;
+}
+.botonPerfil{
+    -fx-background-color: transparent;
+    -fx-background-radius: 50%;
+    -fx-border-color: #48AB97;
+    -fx-border-radius: 50%;
+}
 
+.botonesPrincipales{
+    -fx-background-color: transparent;
+    -fx-text-fill: #48AB07;
+}
 .errorLabel {
     -fx-font-size: 13;
     -fx-text-fill: red;
@@ -36,4 +52,3 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
 }
-

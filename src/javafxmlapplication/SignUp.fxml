@@ -33,17 +33,17 @@
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrarse" />
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="atributos" stylesheets="@../icons/estilos.css" GridPane.rowIndex="1">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" styleClass="atributos" stylesheets="@../icons/estilos.css" GridPane.rowIndex="1">
                <children>
-                  <Label text="Usuario:" />
+                  <Label styleClass="atributosRegistro" stylesheets="@../icons/estilos.css" text="Usuario:" />
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
                <children>
                   <Label text="Nombre:" />
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
                <children>
                   <Label text="Correo:" />
                </children>
