@@ -44,14 +44,17 @@
       </HBox>
       <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="4">
          <children>
-            <Label style="-fx-font-size: 13;" styleClass="atributos" stylesheets="@../icons/estilos.css" text="¿Eres nuevo? Regístrate">
-               <font>
-                  <Font size="2.0" />
-               </font>
+            <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="¿Eres nuevo? Regístrate" textFill="#6ee0ae">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
                <HBox.margin>
                   <Insets bottom="20.0" left="20.0" />
                </HBox.margin>
-            </Label>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
