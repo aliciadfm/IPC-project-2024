@@ -7,18 +7,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     Author     : adolf
 */
 
-.root{
-    -fx-background-color:white;
+.root {
+    -fx-background-color: white;
 }
-.cabecera{
-    -fx-background-color:#6EE0AE;
+
+.cabecera {
+    -fx-background-color: #6EE0AE;
     -fx-font-size: 40;
-    -fx-text-fill:white;
+    -fx-text-fill: white;
     -fx-padding: 0 0 0 20;  
 }
-.atributos{
+
+.label {
     -fx-font-size: 20;
-    -fx-text-fill:#6EE0AE;
+    -fx-text-fill: #6EE0AE;
     -fx-padding: 0 10 0 0;
     -fx-font-weight: bold;
 }
@@ -37,5 +39,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .botonesPrincipales{
     -fx-background-color: transparent;
-    -fx-text-fill: #48AB97;
+    -fx-text-fill: #48AB07;
+}
+.errorLabel {
+    -fx-font-size: 13;
+    -fx-text-fill: red;
+    -fx-padding: 0 10 0 0;
+}
+
+.botonAceptarCancelar {
+    -fx-background-color: #6EE0AE;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
 }
