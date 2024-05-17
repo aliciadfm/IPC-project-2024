@@ -9,10 +9,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .root {
     -fx-background-color:white;
+    verde-oscuro: #48AB9;
+    verde-claro: #6EE0AE;
 }
 
 .cabecera {
-    -fx-background-color: #6EE0AE;
+    -fx-background-color: verde-oscuro;
     -fx-font-size: 40;
     -fx-text-fill: white;
     -fx-padding: 0 0 0 20;  
@@ -20,26 +22,26 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .label {
     -fx-font-size: 20;
-    -fx-text-fill: #6EE0AE;
+    -fx-text-fill: verde-claro;
     -fx-padding: 0 10 0 0;
     -fx-font-weight: bold;
 }
 .atributosRegistro{
     -fx-font-size: 15;
-    -fx-text-fill:#6EE0AE;
+    -fx-text-fill: verde-claro;
     -fx-padding: 0 10 0 0;
     -fx-font-weight: bold;
 }
 .botonPerfil{
     -fx-background-color: transparent;
     -fx-background-radius: 50%;
-    -fx-border-color: #48AB97;
+    -fx-border-color: verde-;
     -fx-border-radius: 50%;
 }
 
 .botonesPrincipales{
     -fx-background-color: transparent;
-    -fx-text-fill: #48AB07;
+    -fx-text-fill: verde-oscuro;
 }
 .errorLabel {
     -fx-font-size: 13;
@@ -48,7 +50,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .botonAceptarCancelar {
-    -fx-background-color: #6EE0AE;
+    -fx-background-color: verde-oscuro;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
 }
