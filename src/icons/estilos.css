@@ -36,9 +36,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .botonPerfil {
     -fx-background-color: transparent;
-    -fx-background-radius: 50%;
+    -fx-padding: 0;
     -fx-border-color: #54C1A7;
-    -fx-border-radius: 50%;
 }
 
 .botonesPrincipales {

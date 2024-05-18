@@ -17,19 +17,23 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Ventana">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Cerrar Ventana" />
+                  <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Acciones">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Añadir Gastos" />
+                  <MenuItem mnemonicParsing="false" text="VisualizarGastos" />
+                  <MenuItem mnemonicParsing="false" text="Añadir Categoria de Gasto" />
+                  <MenuItem mnemonicParsing="false" text="Eliminar Categoria" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Help">
+          <Menu mnemonicParsing="false" text="Imprimir">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+              <MenuItem mnemonicParsing="false" text="Imprimir a PDF" />
             </items>
           </Menu>
         </menus>
@@ -44,7 +48,7 @@
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/FotoDePrueba.png" />
+                              <Image url="@../icons/user.png" />
                            </image>
                         </ImageView>
                      </graphic>
