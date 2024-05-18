@@ -28,6 +28,7 @@ public class JavaFXMLApplication extends Application {
         //     - configuracion del stage
         //     - se muestra el stage de manera no modal mediante el metodo show()
         stage.setScene(scene);
+        scene.getStylesheets().addAll("./icons/estilos.css");
         stage.setTitle("Proyecto Gestion");
         stage.show();
     }
