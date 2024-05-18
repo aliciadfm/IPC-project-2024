@@ -7,6 +7,8 @@ package javafxmlapplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import model.Acount;
+import model.AcountDAOException;
+import model.User;
 
 /**
  * FXML Controller class
@@ -23,13 +30,37 @@ import javafx.stage.Stage;
  */
 public class PerfilController implements Initializable {
 
+    @FXML
+    private ImageView perfilImagen;
+    @FXML
+    private Label perfilUsuarioText;
+    @FXML
+    private Label perfilCorreoText;
+    @FXML
+    private Label perfilContraseñaText;
+    @FXML
+    private Label perfilNombreText;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        User user = null;
+        try {
+            // TODO
+            user = Acount.getInstance().getLoggedUser();
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        perfilImagen.setImage(user.getImage());
+        perfilCorreoText.setText(user.getEmail());
+        perfilUsuarioText.setText(user.getNickName());
+        perfilNombreText.setText(user.getName());
+        perfilContraseñaText.setText(user.getPassword());
         
-        // TODO
     }    
 
     @FXML
