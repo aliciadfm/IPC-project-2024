@@ -10,6 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.Acount;
 
 
 public class JavaFXMLApplication extends Application {
@@ -18,6 +19,8 @@ public class JavaFXMLApplication extends Application {
     public void start(Stage stage) throws Exception {
         //======================================================================
         // 1- creación del grafo de escena a partir del fichero FXML
+        boolean isOK = Acount.getInstance().logInUserByCredentials("usuarioIPC","123456");
+        
         FXMLLoader loader= new  FXMLLoader(getClass().getResource("LoginFxml.fxml"));
         Parent root = loader.load();
         //======================================================================
@@ -39,8 +42,5 @@ public class JavaFXMLApplication extends Application {
     public static void main(String[] args) {
         launch(args);
         
-    }
-
-
-    
+    }    
 }
