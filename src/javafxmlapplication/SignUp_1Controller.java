@@ -67,10 +67,10 @@ public class SignUp_1Controller implements Initializable {
     private void AceptarRegistar(ActionEvent event) throws Exception {
         if(checkEmail(correoText.getText()) && checkPassword(contraseñaText.getText()) 
                 && contraseñaText2.getText().equals(contraseñaText.getText()) &&
-                !Acount.getInstance().logInUserByCredentials(contraseñaText.getText(),contraseñaText2.getText())
+                !Acount.getInstance().logInUserByCredentials(usuarioText.getText(),contraseñaText.getText())
                 ){
             Acount.getInstance().registerUser(nombreText.getText(), apellidoText.getText(), correoText.getText(), usuarioText.getText(), contraseñaText.getText(), imagenAvatar.getImage(), LocalDate.now());
-            Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
@@ -81,6 +81,7 @@ public class SignUp_1Controller implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            System.out.println("Error");
         }
     }
     

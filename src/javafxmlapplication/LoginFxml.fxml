@@ -64,13 +64,13 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <TextField alignment="TOP_LEFT" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="userNick" alignment="TOP_LEFT" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
          <children>
-            <TextField HBox.hgrow="ALWAYS" />
+            <TextField fx:id="userPass" HBox.hgrow="ALWAYS" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
