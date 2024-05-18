@@ -9,8 +9,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .root {
     -fx-background-color:white;
-    verde-oscuro: #48AB9;
-    verde-claro: #6EE0AE;
+    --verde-oscuro: #48AB9;
+    --verde-claro: #6EE0AE;
 }
 
 .cabecera {
