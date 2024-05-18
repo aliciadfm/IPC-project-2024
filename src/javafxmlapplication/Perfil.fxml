@@ -18,16 +18,11 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="59.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="perfilImagen" fitHeight="59.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icons/user.png" />
                      </image>
                   </ImageView>
-                  <Label text="Username">
-                     <VBox.margin>
-                        <Insets top="7.5" />
-                     </VBox.margin>
-                  </Label>
                </children>
             </VBox>
          </children>
@@ -57,7 +52,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <children>
-                  <Label text="Manolo" />
+                  <Label fx:id="perfilUsuarioText" />
                </children>
                <GridPane.margin>
                   <Insets left="10.0" />
@@ -75,7 +70,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <children>
-                  <Label text="Manuela@upv.edu.es" />
+                  <Label fx:id="perfilCorreoText" />
                </children>
                <padding>
                   <Insets left="10.0" />
@@ -88,7 +83,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
                <children>
-                  <Label text="*******" />
+                  <Label fx:id="perfilContraseñaText" />
                </children>
                <padding>
                   <Insets left="10.0" />
@@ -96,7 +91,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
                <children>
-                  <Label text="Manuela" />
+                  <Label fx:id="perfilNombreText" />
                </children>
                <GridPane.margin>
                   <Insets left="10.0" />
