@@ -15,7 +15,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 
 .cabecera {
     -fx-background-color: #54C1A7;
-    -fx-font-size: 40;
+    -fx-font-size: 30;
     -fx-text-fill: white;
     -fx-padding: 0 0 0 20;  
 }
@@ -28,9 +28,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .atributosRegistro {
-    -fx-font-size: 15;
-    -fx-text-fill: #6EE0AE;
-    -fx-padding: 0 10 0 0;
+    -fx-font-size: 20;
+    -fx-text-fill: #6EE0AE;   
     -fx-font-weight: bold;
 }
 
