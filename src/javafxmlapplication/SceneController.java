@@ -38,6 +38,22 @@ public class SceneController {
         stage.show();
     }
     
+    public void cambiarEditarGasto(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("EditarGasto.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
+    public void cambiarEditarPerfil(ActionEvent event)throws IOException{
+        root = FXMLLoader.load(getClass().getResource("EditarPerfil.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    
     public void cambiarLogin(ActionEvent event)throws IOException{
         root = FXMLLoader.load(getClass().getResource("LoginFxml.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -46,7 +62,7 @@ public class SceneController {
         stage.show();
     }
     
-    public void cambiarPerfikl(ActionEvent event)throws IOException{
+    public void cambiarPerfil(ActionEvent event)throws IOException{
         root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
