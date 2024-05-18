@@ -61,3 +61,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-font-weight: bold;
 }
 
+.descriptionLabel {
+    -fx-font-size: 20;
+    -fx-text-fill: #464646;
+}
