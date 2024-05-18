@@ -6,6 +6,8 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -36,16 +38,18 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox prefWidth="150.0" promptText="Seleccionar Categoría" stylesheets="@../icons/estilos.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
+            <ComboBox fx:id="categoriaSelec" prefWidth="150.0" promptText="Seleccionar Categoría" stylesheets="@../icons/estilos.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
             <Button mnemonicParsing="false" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Categoría" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <TextField />
+                  <TextField fx:id="tituloText" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
@@ -53,7 +57,7 @@
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <TextField />
+                  <TextField fx:id="costeText" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
@@ -61,15 +65,15 @@
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <TextField />
+                  <TextField fx:id="descripcionText" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <padding>
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <DatePicker />
+                  <DatePicker fx:id="fechaPicker" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
@@ -101,14 +105,14 @@
                   <Insets right="10.0" />
                </opaqueInsets>
                <children>
-                  <Label stylesheets="@../icons/estilos.css" text="Decripción">
+                  <Label stylesheets="@../icons/estilos.css" text="Decripción:">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+            <HBox alignment="CENTER_RIGHT" prefHeight="25.0" prefWidth="200.0" GridPane.rowIndex="6">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets>
@@ -120,13 +124,34 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="6">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="7" GridPane.rowSpan="2">
                <opaqueInsets>
                   <Insets right="10.0" />
                </opaqueInsets>
                <children>
-                  <Button mnemonicParsing="false" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Foto" />
+                  <Button fx:id="añadirImagen" maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fx:id="imagenAvatar" fitHeight="95.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/FotoDePrueba.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
+               <children>
+                  <Label stylesheets="@../icons/estilos.css" text="Unidades:" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <children>
+                  <TextField fx:id="unidadesText" />
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
             </HBox>
          </children>
          <BorderPane.margin>
@@ -135,7 +160,7 @@
       </GridPane>
    </center>
    <bottom>
-      <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
             <Button mnemonicParsing="false" onAction="#CancelarAñadirGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar">
                <HBox.margin>
