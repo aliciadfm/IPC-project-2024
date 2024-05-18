@@ -5,6 +5,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 /* 
     Created on : 12 mar 2024, 13:30:18
     Author     : adolf
+    Color Cabeceras: #54C1A7
+    Color Letras: #6EE0AE
 */
 
 .root {
@@ -12,7 +14,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .cabecera {
-    -fx-background-color: #48AB97;
+    -fx-background-color: #54C1A7;
     -fx-font-size: 40;
     -fx-text-fill: white;
     -fx-padding: 0 0 0 20;  
@@ -35,13 +37,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 .botonPerfil {
     -fx-background-color: transparent;
     -fx-background-radius: 50%;
-    -fx-border-color: #48AB97;
+    -fx-border-color: #54C1A7;
     -fx-border-radius: 50%;
 }
 
 .botonesPrincipales {
     -fx-background-color: transparent;
-    -fx-text-fill: #48AB97;
+    -fx-text-fill: #54C1A7;
 }
 
 .errorLabel {
@@ -51,7 +53,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 .botonAceptarCancelar {
-    -fx-background-color: #48AB97;
+    -fx-background-color: #54C1A7;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
 }
