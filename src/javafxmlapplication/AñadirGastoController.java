@@ -14,7 +14,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Acount;
+import javax.swing.*;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDate;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javax.imageio.ImageIO;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * FXML Controller class
@@ -22,6 +35,23 @@ import javafx.stage.Stage;
  * @author unayd
  */
 public class AñadirGastoController implements Initializable {
+
+    @FXML
+    private ComboBox<?> categoriaSelec;
+    @FXML
+    private TextField tituloText;
+    @FXML
+    private TextField descripcionText;
+    @FXML
+    private DatePicker fechaPicker;
+    @FXML
+    private TextField costeText;
+    @FXML
+    private TextField unidadesText;
+    @FXML
+    private Button añadirImagen;
+    @FXML
+    private ImageView imagenAvatar;
 
     /**
      * Initializes the controller class.
@@ -41,12 +71,36 @@ public class AñadirGastoController implements Initializable {
     }
 
     @FXML
-    private void AceptarAñadirGasto(ActionEvent event) throws IOException {
+    private void AceptarAñadirGasto(ActionEvent event) throws Exception {
+        if(true){
+            double coste = Double.parseDouble(costeText.getText());
+            int unidades = Integer.parseInt(unidadesText.getText());
+            Acount.getInstance().registerCharge(tituloText.getText(),descripcionText.getText(),coste,unidades,imagenAvatar.getImage(),fechaPicker.getValue(),categoriaSelec.getValue());
+
+        }
+        
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    
+
+    private Image añadirfoto(ActionEvent event) {
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Selecciona una imagen");
+        fileChooser.setAcceptAllFileFilterUsed(false);
+        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivos de imagen", ImageIO.getReaderFileSuffixes()));
+        int userSelection = fileChooser.showOpenDialog(null);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File fileToOpen = fileChooser.getSelectedFile();
+            try {
+                return ImageIO.read(fileToOpen);
+            } catch (IOException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } 
+        return null;
+    }   
 }

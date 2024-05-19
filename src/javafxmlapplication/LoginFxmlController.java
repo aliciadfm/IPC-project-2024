@@ -30,12 +30,12 @@ import model.Acount;
  * @author unayd
  */
 public class LoginFxmlController implements Initializable {
-    @FXML
-    private Button BotonAceptarLogin;
-    @FXML
     private TextField userNick;
-    @FXML
     private TextField userPass;
+    @FXML
+    private TextField userNickField;
+    @FXML
+    private TextField userPassField;
     
     /**
      * Initializes the controller class.
@@ -48,14 +48,15 @@ public class LoginFxmlController implements Initializable {
 
     @FXML
     private void AceptarLogin(ActionEvent event) throws Exception {
-        if (Acount.getInstance().logInUserByCredentials(userNick.getText(), userPass.getText())) {
+        String userNick = userNickField.getText();
+        String userPass = userPassField.getText();
+        if (Acount.getInstance().logInUserByCredentials(userNick, userPass)) {
             Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
         } else {
-            // Aquí puedes agregar un mensaje de error si la autenticación falla
             System.out.println("Error: credenciales inválidas");
         }
     }
