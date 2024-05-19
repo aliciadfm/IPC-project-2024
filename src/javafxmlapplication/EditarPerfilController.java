@@ -7,6 +7,8 @@ package javafxmlapplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +16,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import model.Acount;
+import model.AcountDAOException;
+import model.User;
 
 /**
  * FXML Controller class
@@ -22,6 +31,15 @@ import javafx.stage.Stage;
  * @author adolf
  */
 public class EditarPerfilController implements Initializable {
+
+    @FXML
+    private TextField areaCorreo;
+    @FXML
+    private PasswordField areaContraseña1;
+    @FXML
+    private TextField areaNombre;
+    @FXML
+    private PasswordField areaContraseña2;
 
     /**
      * Initializes the controller class.
@@ -42,6 +60,32 @@ public class EditarPerfilController implements Initializable {
 
     @FXML
     private void AceptarEditarPErfil(ActionEvent event) throws IOException {
+        User user = null;
+        try {
+            user = Acount.getInstance().getLoggedUser();
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(!areaNombre.getText().equals("")){
+            user.setName(areaNombre.getText()); 
+        }
+        if(!areaCorreo.getText().equals("")){
+            user.setEmail(areaCorreo.getText());
+        }
+        if(!areaContraseña1.getText().equals("")){
+            if (!areaContraseña2.getText().equals("")){
+                if(areaContraseña1.getText().equals(areaContraseña2.getText())){
+                    user.setPassword(areaContraseña1.getText());
+                } else{
+                    Alert alert = new Alert(AlertType.ERROR);
+                    alert.setTitle("Error al Editar el perfil");
+                    alert.setContentText("Las contraseñas no coniciden");
+                    alert.showAndWait();
+                }
+            } 
+        }
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

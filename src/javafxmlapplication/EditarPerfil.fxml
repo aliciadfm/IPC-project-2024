@@ -25,11 +25,6 @@
                         <Image url="@../icons/user.png" />
                      </image>
                   </ImageView>
-                  <Label text="Username">
-                     <VBox.margin>
-                        <Insets top="7.5" />
-                     </VBox.margin>
-                  </Label>
                </children>
             </VBox>
          </children>
@@ -46,7 +41,6 @@
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -55,25 +49,25 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label stylesheets="@../icons/estilos.css" text="Usuario" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-               <children>
-                  <TextField />
+                  <Label stylesheets="@../icons/estilos.css" text="Nombre" />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label stylesheets="@../icons/estilos.css" text="Nombre" />
+                  <Label stylesheets="@../icons/estilos.css" text="Correo" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
                <children>
-                  <Label stylesheets="@../icons/estilos.css" text="Correo" />
+                  <TextField fx:id="areaCorreo" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="121.0" stylesheets="@../icons/estilos.css" text="Contraseña" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="2">
@@ -81,12 +75,26 @@
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <TextField />
+                  <PasswordField fx:id="areaContraseña1" />
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="60.0" prefWidth="134.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
                <children>
-                  <Label prefHeight="30.0" prefWidth="121.0" stylesheets="@../icons/estilos.css" text="Contraseña" />
+                  <TextField fx:id="areaNombre" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="292.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#CancelarEditarPerfil" prefHeight="26.0" prefWidth="97.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar" />
+                  <Button mnemonicParsing="false" onAction="#AceptarEditarPErfil" prefHeight="26.0" prefWidth="90.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Confirmar" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <children>
+                  <Label stylesheets="@../icons/estilos.css" text="Repetir Cont." />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="3">
@@ -94,34 +102,7 @@
                   <Insets left="10.0" />
                </padding>
                <children>
-                  <PasswordField />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="1">
-               <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-               <children>
-                  <TextField />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="292.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="5">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#CancelarEditarPerfil" prefHeight="26.0" prefWidth="97.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar" />
-                  <Button mnemonicParsing="false" onAction="#AceptarEditarPErfil" prefHeight="26.0" prefWidth="90.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Confirmar" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <children>
-                  <Label stylesheets="@../icons/estilos.css" text="Contraseña" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="4">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <children>
-                  <PasswordField prefHeight="26.0" prefWidth="150.0" />
+                  <PasswordField fx:id="areaContraseña2" prefHeight="26.0" prefWidth="150.0" />
                </children>
             </HBox>
          </children>
