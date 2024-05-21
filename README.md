@@ -6,4 +6,4 @@ Los participantes de este proyectos son:
 <br>-Unay David Figueroa - udfiguer@etsinf.upv.es (Y5773157X)
 <br>-Adolfo González Tamarit - agontam@etsinf.upv.es (21802734E)
 
-Los participantes estamos matriculados en el grupo L1-2B de IPC.
+Los participantes estamos matriculados en el grupo L1-2B y somos el grupo L1-2B 14 del trabajo.
