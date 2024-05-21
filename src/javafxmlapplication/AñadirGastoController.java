@@ -22,7 +22,12 @@ import javax.swing.*;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import javafx.scene.control.Button;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.ChoiceDialog;
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -53,15 +58,17 @@ public class AñadirGastoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    ObservableList<Category> listaCategorias;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        listaCategorias = FXCollections.observableArrayList();
+    }
 
     @FXML
     private void cancelarAñadirGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -69,16 +76,16 @@ public class AñadirGastoController implements Initializable {
 
     @FXML
     private void aceptarAñadirGasto(ActionEvent event) throws Exception {
-        if(true){
+        if (true) {
             double coste = Double.parseDouble(costeText.getText());
             int unidades = Integer.parseInt(unidadesText.getText());
             Category categoria = categoriaSelec.getValue();
-            Acount.getInstance().registerCharge(tituloText.getText(),descripcionText.getText(),coste,unidades,imagenAvatar.getImage(),fechaPicker.getValue(),categoria);
+            Acount.getInstance().registerCharge(tituloText.getText(), descripcionText.getText(), coste, unidades, imagenAvatar.getImage(), fechaPicker.getValue(), categoria);
 
         }
-        
+
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -98,17 +105,28 @@ public class AñadirGastoController implements Initializable {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
-        } 
+        }
         return null;
-    }   
+    }
 
     @FXML
     private void añadirImagen(ActionEvent event) {
+        Image imagen = añadirFoto(event);
+        //imagenAvatar.setImage(imagen);  //FALLO EN ESTA LÍNEA: la imagen que devuelve y la que recibe el método setImage() no son del mismo paquete. (awt y scene.Scene)
     }
 
     @FXML
     private void añadirCategoria(ActionEvent event) {
-        
+        List<String> choices = new ArrayList<>();
+        choices.add("uno");
+        choices.add("dos");
+        choices.add("tres");
+        ChoiceDialog<String> dialog = new ChoiceDialog<>("dos", choices);
+        dialog.setTitle("Diálogo de selección");
+        dialog.setHeaderText("Cabecera");
+        dialog.setContentText("Elige un número:");
+        Optional<String> result = dialog.showAndWait();
+        String a = result.get();
+        categoriaSelec.setItems();
     }
-
 }
