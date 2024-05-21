@@ -40,17 +40,39 @@ public class EditarPerfilController implements Initializable {
     private TextField areaNombre;
     @FXML
     private PasswordField areaContraseña2;
-
+    
+    private boolean haCambiado = false;
+    private String ogName;
+    private String ogEmail;
+    private String ogContraseña;
+    private User user = null;
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        User user = null;
+        try {
+            user = Acount.getInstance().getLoggedUser();
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ogName = user.getName();
+        ogEmail = user.getEmail();
+        ogContraseña = user.getPassword();
     }    
 
     @FXML
     private void cancelarEditarPerfil(ActionEvent event) throws IOException {
+        if(haCambiado){
+            user.setName(ogName);
+            user.setEmail(ogEmail);
+            user.setPassword(ogContraseña);
+        }
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -60,25 +82,34 @@ public class EditarPerfilController implements Initializable {
 
     @FXML
     private void aceptarEditarPErfil(ActionEvent event) throws IOException {
-        User user = null;
-        try {
-            user = Acount.getInstance().getLoggedUser();
-        } catch (AcountDAOException ex) {
-            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
-        }
         if(!areaNombre.getText().equals("")){
-            user.setName(areaNombre.getText()); 
+            user.setName(areaNombre.getText());
+            haCambiado = true;
         }
         if(!areaCorreo.getText().equals("")){
-            user.setEmail(areaCorreo.getText());
+            if(SignUp_1Controller.checkEmail(areaCorreo.getText())){
+                user.setEmail(areaCorreo.getText());
+                haCambiado = true;
+            }else{
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Error al Editar el perfil");
+                alert.setContentText("El eail no es valido.");
+                alert.showAndWait();
+            }
         }
         if(!areaContraseña1.getText().equals("")){
             if (!areaContraseña2.getText().equals("")){
-                if(areaContraseña1.getText().equals(areaContraseña2.getText())){
-                    user.setPassword(areaContraseña1.getText());
-                } else{
+                if(SignUp_1Controller.checkPassword(areaContraseña1.getText())){
+                    if(areaContraseña1.getText().equals(areaContraseña2.getText())){
+                        user.setPassword(areaContraseña1.getText());
+                        haCambiado = true;
+                    } else{
+                        Alert alert = new Alert(AlertType.ERROR);
+                        alert.setTitle("Error al Editar el perfil");
+                        alert.setContentText("Las contraseña no tiene un formato valido.");
+                        alert.showAndWait();
+                    }
+                }else{
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setTitle("Error al Editar el perfil");
                     alert.setContentText("Las contraseñas no coniciden");
@@ -86,11 +117,17 @@ public class EditarPerfilController implements Initializable {
                 }
             } 
         }
-        Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(haCambiado){
+            Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } else{
+            Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("No ha habido ningún cambio.");
+                alert.showAndWait();
+        }
     }
     
 }
