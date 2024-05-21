@@ -99,8 +99,8 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="60.0" prefWidth="292.0" spacing="20.0" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="4">
                <children>
-                  <Button mnemonicParsing="false" onAction="#PulsarCancelarPerfil" prefHeight="26.0" prefWidth="55.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Volver" />
-                  <Button mnemonicParsing="false" onAction="#PulsarEditarPerfil" prefHeight="26.0" prefWidth="90.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Editar Perfil" />
+                  <Button mnemonicParsing="false" onAction="#pulsarCancelarPerfil" prefHeight="26.0" prefWidth="55.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Volver" />
+                  <Button mnemonicParsing="false" onAction="#pulsarEditarPerfil" prefHeight="26.0" prefWidth="90.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Editar Perfil" />
                </children>
             </HBox>
          </children>

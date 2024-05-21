@@ -32,7 +32,7 @@ public class VisualizarGastosController implements Initializable {
     }    
 
     @FXML
-    private void VolverVisualizarGastos(ActionEvent event) throws IOException {
+    private void volverVisualizarGastos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

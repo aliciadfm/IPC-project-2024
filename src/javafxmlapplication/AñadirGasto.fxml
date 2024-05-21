@@ -162,12 +162,12 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="400.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#CancelarAñadirGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar">
+            <Button mnemonicParsing="false" onAction="#cancelarAñadirGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar">
                <HBox.margin>
                   <Insets left="25.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#AceptarAñadirGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar">
+            <Button mnemonicParsing="false" onAction="#aceptarAñadirGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar">
                <HBox.margin>
                   <Insets left="25.0" right="25.0" />
                </HBox.margin>

@@ -44,7 +44,7 @@
          <children>
             <HBox alignment="CENTER_RIGHT" prefHeight="80.0" prefWidth="200.0" styleClass="cabecera" stylesheets="@../icons/estilos.css">
                <children>
-                  <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#PulsarPerfil" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
+                  <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#pulsarPerfil" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
                      <graphic>
                         <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -57,7 +57,7 @@
                      </HBox.margin>
                   </Button>
                </children></HBox>
-            <Button mnemonicParsing="false" onAction="#PulsarAñadirGasto" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Añadir Gastos" textAlignment="RIGHT">
+            <Button mnemonicParsing="false" onAction="#pulsarAñadirGasto" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Añadir Gastos" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets bottom="12.0" left="40.0" top="24.0" />
                </VBox.margin>
@@ -71,7 +71,7 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#PulsarVisualizarGastos" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Visualizar Gastos" textAlignment="RIGHT">
+            <Button mnemonicParsing="false" onAction="#pulsarVisualizarGastos" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Visualizar Gastos" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets bottom="24.0" left="40.0" top="12.0" />
                </VBox.margin>

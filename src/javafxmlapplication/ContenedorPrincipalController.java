@@ -32,7 +32,7 @@ public class ContenedorPrincipalController implements Initializable {
     }    
 
     @FXML
-    private void PulsarAñadirGasto(ActionEvent event) throws IOException {
+    private void pulsarAñadirGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AñadirGasto.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -41,7 +41,7 @@ public class ContenedorPrincipalController implements Initializable {
     }
 
     @FXML
-    private void PulsarVisualizarGastos(ActionEvent event) throws IOException {
+    private void pulsarVisualizarGastos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -50,7 +50,7 @@ public class ContenedorPrincipalController implements Initializable {
     }
 
     @FXML
-    private void PulsarPerfil(ActionEvent event) throws IOException {
+    private void pulsarPerfil(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

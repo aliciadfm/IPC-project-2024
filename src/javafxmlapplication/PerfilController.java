@@ -64,7 +64,7 @@ public class PerfilController implements Initializable {
     }    
 
     @FXML
-    private void PulsarCancelarPerfil(ActionEvent event) throws IOException {
+    private void pulsarCancelarPerfil(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -73,7 +73,7 @@ public class PerfilController implements Initializable {
     }
 
     @FXML
-    private void PulsarEditarPerfil(ActionEvent event) throws IOException {
+    private void pulsarEditarPerfil(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EditarPerfil.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

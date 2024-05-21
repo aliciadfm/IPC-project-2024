@@ -35,7 +35,7 @@
                <children>
                   <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#RegistarLogin" style="-fx-background-color: transparent; -fx-text-fill: #54C1A7; -fx-font-weight: bold; -fx-font-size: 15;" text="¿Eres nuevo? Regístrate" underline="true" />
+                        <Button mnemonicParsing="false" onAction="#registarLogin" style="-fx-background-color: transparent; -fx-text-fill: #54C1A7; -fx-font-weight: bold; -fx-font-size: 15;" text="¿Eres nuevo? Regístrate" underline="true" />
                      </children>
                      <padding>
                         <Insets bottom="20.0" />
@@ -46,7 +46,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#AceptarLogin" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Iniciar sesión" />
+                        <Button mnemonicParsing="false" onAction="#aceptarLogin" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Iniciar sesión" />
                      </children>
                      <padding>
                         <Insets bottom="20.0" />

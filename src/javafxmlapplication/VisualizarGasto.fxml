@@ -31,7 +31,7 @@
          <children>
             <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#CancelarVisualizarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar" />
+                  <Button mnemonicParsing="false" onAction="#cancelarVisualizarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar" />
                </children>
                <GridPane.margin>
                   <Insets bottom="20.0" left="20.0" />
@@ -39,12 +39,12 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Button mnemonicParsing="false" onAction="#PulsarEditarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Editar">
+                  <Button mnemonicParsing="false" onAction="#pulsarEditarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Editar">
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#PulsarEliminarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Eliminar">
+                  <Button mnemonicParsing="false" onAction="#pulsarEliminarGasto" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Eliminar">
                      <HBox.margin>
                         <Insets left="15.0" right="15.0" />
                      </HBox.margin>

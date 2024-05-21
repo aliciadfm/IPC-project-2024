@@ -61,8 +61,7 @@ public class AñadirGastoController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void CancelarAñadirGasto(ActionEvent event) throws IOException {
+    private void cancelarAñadirGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -70,8 +69,7 @@ public class AñadirGastoController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    private void AceptarAñadirGasto(ActionEvent event) throws Exception {
+    private void aceptarAñadirGasto(ActionEvent event) throws Exception {
         if(true){
             double coste = Double.parseDouble(costeText.getText());
             int unidades = Integer.parseInt(unidadesText.getText());
@@ -86,7 +84,7 @@ public class AñadirGastoController implements Initializable {
         stage.show();
     }
 
-    private Image añadirfoto(ActionEvent event) {
+    private Image añadirFoto(ActionEvent event) {
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setDialogTitle("Selecciona una imagen");
         fileChooser.setAcceptAllFileFilterUsed(false);
@@ -103,4 +101,12 @@ public class AñadirGastoController implements Initializable {
         } 
         return null;
     }   
+
+    @FXML
+    private void CancelarAñadirGasto(ActionEvent event) {
+    }
+
+    @FXML
+    private void AceptarAñadirGasto(ActionEvent event) {
+    }
 }

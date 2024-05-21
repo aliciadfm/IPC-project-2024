@@ -98,7 +98,7 @@
                </GridPane.margin></HBox>
             <HBox alignment="BOTTOM_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="8">
                <children>
-                  <Button mnemonicParsing="false" onAction="#CancelarRegistrar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar">
+                  <Button mnemonicParsing="false" onAction="#cancelarRegistrar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Cancelar">
                      <HBox.margin>
                         <Insets bottom="20.0" left="20.0" />
                      </HBox.margin>
@@ -110,7 +110,7 @@
                </children></HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
                <children>
-                  <Button mnemonicParsing="false" onAction="#AceptarRegistar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar">
+                  <Button mnemonicParsing="false" onAction="#aceptarRegistar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar">
                      <HBox.margin>
                         <Insets bottom="20.0" right="20.0" />
                      </HBox.margin>

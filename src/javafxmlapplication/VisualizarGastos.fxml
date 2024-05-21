@@ -85,7 +85,7 @@
    <bottom>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="49.0" prefWidth="942.0" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#VolverVisualizarGastos" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Volver">
+            <Button mnemonicParsing="false" onAction="#volverVisualizarGastos" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Volver">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" />
                </HBox.margin>

@@ -47,7 +47,7 @@ public class LoginFxmlController implements Initializable {
     }    
 
     @FXML
-    private void AceptarLogin(ActionEvent event) throws Exception {
+    private void aceptarLogin(ActionEvent event) throws Exception {
         String userNick = userNickField.getText();
         String userPass = userPassField.getText();
         if (Acount.getInstance().logInUserByCredentials(userNick, userPass)) {
@@ -62,7 +62,7 @@ public class LoginFxmlController implements Initializable {
     }
 
     @FXML
-    private void RegistarLogin(ActionEvent event) throws IOException{
+    private void registarLogin(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("SignUp_1.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

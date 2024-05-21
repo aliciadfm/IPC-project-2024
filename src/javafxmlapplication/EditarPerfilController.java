@@ -50,7 +50,7 @@ public class EditarPerfilController implements Initializable {
     }    
 
     @FXML
-    private void CancelarEditarPerfil(ActionEvent event) throws IOException {
+    private void cancelarEditarPerfil(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -59,7 +59,7 @@ public class EditarPerfilController implements Initializable {
     }
 
     @FXML
-    private void AceptarEditarPErfil(ActionEvent event) throws IOException {
+    private void aceptarEditarPErfil(ActionEvent event) throws IOException {
         User user = null;
         try {
             user = Acount.getInstance().getLoggedUser();
