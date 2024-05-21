@@ -42,18 +42,17 @@ public class EditarPerfilController implements Initializable {
     private PasswordField areaContraseña2;
     
     private boolean haCambiado = false;
+    private boolean haIntentadoCambiar = false;
     private String ogName;
     private String ogEmail;
     private String ogContraseña;
     private User user = null;
-    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        User user = null;
         try {
             user = Acount.getInstance().getLoggedUser();
         } catch (AcountDAOException ex) {
@@ -82,6 +81,7 @@ public class EditarPerfilController implements Initializable {
 
     @FXML
     private void aceptarEditarPErfil(ActionEvent event) throws IOException {
+        haIntentadoCambiar = false;
         if(!areaNombre.getText().equals("")){
             user.setName(areaNombre.getText());
             haCambiado = true;
@@ -91,8 +91,9 @@ public class EditarPerfilController implements Initializable {
                 user.setEmail(areaCorreo.getText());
                 haCambiado = true;
             }else{
+                haIntentadoCambiar = true;
                 Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Error al Editar el perfil");
+                alert.setHeaderText("Error al Editar el perfil");
                 alert.setContentText("El eail no es valido.");
                 alert.showAndWait();
             }
@@ -104,14 +105,16 @@ public class EditarPerfilController implements Initializable {
                         user.setPassword(areaContraseña1.getText());
                         haCambiado = true;
                     } else{
+                        haIntentadoCambiar = true;
                         Alert alert = new Alert(AlertType.ERROR);
-                        alert.setTitle("Error al Editar el perfil");
+                        alert.setHeaderText("Error al Editar el perfil");
                         alert.setContentText("Las contraseña no tiene un formato valido.");
                         alert.showAndWait();
                     }
                 }else{
+                    haIntentadoCambiar = true;
                     Alert alert = new Alert(AlertType.ERROR);
-                    alert.setTitle("Error al Editar el perfil");
+                    alert.setHeaderText("Error al Editar el perfil");
                     alert.setContentText("Las contraseñas no coniciden");
                     alert.showAndWait();
                 }
@@ -123,10 +126,17 @@ public class EditarPerfilController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+        } else if(haIntentadoCambiar){
+            
         } else{
             Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("No ha habido ningún cambio.");
-                alert.showAndWait();
+            alert.setHeaderText("No ha habido ningún cambio.");
+            alert.showAndWait();
+            Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         }
     }
     
