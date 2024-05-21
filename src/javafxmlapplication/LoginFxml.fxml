@@ -15,7 +15,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="343.0" prefWidth="611.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.LoginFxmlController">
    <top>
-      <HBox alignment="CENTER_LEFT" prefHeight="77.0" prefWidth="811.0" styleClass="cabecera" stylesheets="@../icons/estilos.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="811.0" styleClass="cabecera" stylesheets="@../icons/estilos.css" BorderPane.alignment="CENTER">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titulo" text="Iniciar sesión" />
          </children>
@@ -85,12 +85,12 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField fx:id="userNickField" prefHeight="25.0" prefWidth="168.0" />
+                        <TextField fx:id="userNickField" prefHeight="25.0" prefWidth="130.0" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="486.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <PasswordField fx:id="userPassField" prefHeight="25.0" prefWidth="202.0" />
+                        <PasswordField fx:id="userPassField" prefHeight="25.0" prefWidth="180.0" />
                      </children>
                   </HBox>
                </children>
@@ -99,9 +99,9 @@
                </VBox.margin>
             </GridPane>
          </children>
-         <padding>
+         <BorderPane.margin>
             <Insets right="80.0" top="20.0" />
-         </padding>
+         </BorderPane.margin>
       </VBox>
    </center>
 </BorderPane>
