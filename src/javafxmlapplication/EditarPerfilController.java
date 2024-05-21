@@ -108,14 +108,14 @@ public class EditarPerfilController implements Initializable {
                         haIntentadoCambiar = true;
                         Alert alert = new Alert(AlertType.ERROR);
                         alert.setHeaderText("Error al Editar el perfil");
-                        alert.setContentText("Las contraseña no tiene un formato valido.");
+                        alert.setContentText("Las contraseñas no coniciden");
                         alert.showAndWait();
                     }
                 }else{
                     haIntentadoCambiar = true;
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText("Error al Editar el perfil");
-                    alert.setContentText("Las contraseñas no coniciden");
+                    alert.setContentText("Las contraseña no tiene un formato valido");
                     alert.showAndWait();
                 }
             } 

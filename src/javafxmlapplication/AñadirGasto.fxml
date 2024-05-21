@@ -43,7 +43,7 @@
         </rowConstraints>
          <children>
             <ComboBox fx:id="categoriaSelec" prefWidth="150.0" promptText="Seleccionar Categoría" stylesheets="@../icons/estilos.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Categoría" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#añadirCategoria" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Categoría" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
@@ -129,7 +129,7 @@
                   <Insets right="10.0" />
                </opaqueInsets>
                <children>
-                  <Button fx:id="añadirImagen" maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
+                  <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#añadirImagen" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
                      <graphic>
                         <ImageView fx:id="imagenAvatar" fitHeight="95.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                            <image>

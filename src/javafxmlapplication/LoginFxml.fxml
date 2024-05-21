@@ -46,7 +46,7 @@
                   </HBox>
                   <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#aceptarLogin" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Iniciar sesión" />
+                        <Button defaultButton="true" mnemonicParsing="false" onAction="#aceptarLogin" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Iniciar sesión" />
                      </children>
                      <padding>
                         <Insets bottom="20.0" />
