@@ -22,13 +22,18 @@ import javax.swing.*;
 import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceDialog;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.GridPane;
+import javafx.util.Pair;
 import javax.imageio.ImageIO;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Category;
@@ -58,11 +63,26 @@ public class AñadirGastoController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
     ObservableList<Category> listaCategorias;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         listaCategorias = FXCollections.observableArrayList();
+        costeText.textProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    costeText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        unidadesText.textProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    unidadesText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
     }
 
     @FXML
@@ -81,7 +101,7 @@ public class AñadirGastoController implements Initializable {
             int unidades = Integer.parseInt(unidadesText.getText());
             Category categoria = categoriaSelec.getValue();
             Acount.getInstance().registerCharge(tituloText.getText(), descripcionText.getText(), coste, unidades, imagenAvatar.getImage(), fechaPicker.getValue(), categoria);
-
+            
         }
 
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
@@ -115,18 +135,52 @@ public class AñadirGastoController implements Initializable {
         //imagenAvatar.setImage(imagen);  //FALLO EN ESTA LÍNEA: la imagen que devuelve y la que recibe el método setImage() no son del mismo paquete. (awt y scene.Scene)
     }
 
+    String nombre;
+    String descripcion;
+    
     @FXML
-    private void añadirCategoria(ActionEvent event) {
-        List<String> choices = new ArrayList<>();
-        choices.add("uno");
-        choices.add("dos");
-        choices.add("tres");
-        ChoiceDialog<String> dialog = new ChoiceDialog<>("dos", choices);
-        dialog.setTitle("Diálogo de selección");
-        dialog.setHeaderText("Cabecera");
-        dialog.setContentText("Elige un número:");
-        Optional<String> result = dialog.showAndWait();
-        String a = result.get();
-        categoriaSelec.setItems();
+    private void añadirCategoria(ActionEvent event) throws Exception {
+        Dialog<Pair<String, String>> dialog = new Dialog<>();
+        dialog.setTitle("Crear nueva categoría");
+        dialog.setHeaderText("Introduce los detalles de la nueva categoría");
+
+        ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+        dialog.getDialogPane().getButtonTypes().addAll(okButtonType, ButtonType.CANCEL);
+
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+
+        TextField nombreField = new TextField();
+        nombreField.setPromptText("Nombre");
+        TextField descripcionField = new TextField();
+        descripcionField.setPromptText("Descripción");
+
+        grid.add(new Label("Nombre:"), 0, 0);
+        grid.add(nombreField, 1, 0);
+        grid.add(new Label("Descripción:"), 0, 1);
+        grid.add(descripcionField, 1, 1);
+
+        dialog.getDialogPane().setContent(grid);
+
+        dialog.setResultConverter(dialogButton -> {
+            if (dialogButton == okButtonType) {
+                return new Pair<>(nombreField.getText(), descripcionField.getText());
+            }
+            return null;
+        });
+
+        Optional<Pair<String, String>> result = dialog.showAndWait();
+
+        result.ifPresent(nombreDescripcion -> {
+            try {
+                nombre = nombreDescripcion.getKey();
+                descripcion = nombreDescripcion.getValue();
+                System.out.println("Nombre: " + nombre);
+                System.out.println("Descripción: " + descripcion);
+                
+            } catch (Exception e) {
+            }
+        });
     }
 }
