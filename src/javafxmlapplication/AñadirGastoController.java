@@ -46,7 +46,7 @@ import model.Category;
 public class AñadirGastoController implements Initializable {
 
     @FXML
-    private ComboBox<Category> categoriaSelec;
+    private ComboBox<String> categoriaSelec;
     @FXML
     private TextField tituloText;
     @FXML
@@ -63,11 +63,17 @@ public class AñadirGastoController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    ObservableList<Category> listaCategorias;
+    ObservableList<String> listaCategorias;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         listaCategorias = FXCollections.observableArrayList();
+        categoriaSelec.setItems(listaCategorias);
+        try {
+            for(int i = 0; i < Acount.getInstance().getUserCategories().size() - 1; i++) {
+                listaCategorias.add(Acount.getInstance().getUserCategories().get(i).getName());
+            }
+        } catch(Exception e) {}
         costeText.textProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
                 if (!newValue.matches("\\d*")) {
@@ -93,17 +99,26 @@ public class AñadirGastoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    
+    private Category buscarCategoria(String s) throws Exception {
+        Category cat = null;
+        for(int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
+            if(Acount.getInstance().getUserCategories().get(i).getName().equals(s)) {
+                cat = Acount.getInstance().getUserCategories().get(i);
+                return cat;
+            }
+        }
+        return cat;
+    }
 
     @FXML
     private void aceptarAñadirGasto(ActionEvent event) throws Exception {
-        if (true) {
-            double coste = Double.parseDouble(costeText.getText());
-            int unidades = Integer.parseInt(unidadesText.getText());
-            Category categoria = categoriaSelec.getValue();
-            Acount.getInstance().registerCharge(tituloText.getText(), descripcionText.getText(), coste, unidades, imagenAvatar.getImage(), fechaPicker.getValue(), categoria);
-            
-        }
-
+        double coste = Double.parseDouble(costeText.getText());
+        int unidades = Integer.parseInt(unidadesText.getText());
+        String categoria = categoriaSelec.getValue();
+        Category categoria2 = buscarCategoria(categoria);
+        Acount.getInstance().registerCharge(tituloText.getText(), descripcionText.getText(), coste, unidades, imagenAvatar.getImage(), fechaPicker.getValue(), categoria2);
+        
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
@@ -137,7 +152,7 @@ public class AñadirGastoController implements Initializable {
 
     String nombre;
     String descripcion;
-    
+
     @FXML
     private void añadirCategoria(ActionEvent event) throws Exception {
         Dialog<Pair<String, String>> dialog = new Dialog<>();
@@ -178,9 +193,10 @@ public class AñadirGastoController implements Initializable {
                 descripcion = nombreDescripcion.getValue();
                 System.out.println("Nombre: " + nombre);
                 System.out.println("Descripción: " + descripcion);
-                
+                Acount.getInstance().registerCategory(nombre, descripcion);
             } catch (Exception e) {
             }
         });
+        listaCategorias.add(Acount.getInstance().getUserCategories().get(Acount.getInstance().getUserCategories().size()).getName());
     }
 }
