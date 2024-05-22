@@ -23,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Acount;
 import java.time.LocalDate;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -45,6 +46,8 @@ public class SignUp_1Controller implements Initializable {
     private ImageView imagenAvatar;
     @FXML
     private TextField apellidoText;
+    @FXML
+    private Label errorRegistrarse;
 
     /**
      * Initializes the controller class.
@@ -65,17 +68,15 @@ public class SignUp_1Controller implements Initializable {
 
     @FXML
     private void aceptarRegistar(ActionEvent event) throws Exception {
-        if(checkEmail(correoText.getText()) && checkPassword(contraseñaText.getText()) 
-                && contraseñaText2.getText().equals(contraseñaText.getText()) &&
-                Acount.getInstance().logInUserByCredentials(usuarioText.getText(),contraseñaText.getText())){
+        if(!checkEmail(correoText.getText())){
+            errorRegistrarse.setText("El formato del correo es invalido.");
+        }else if(!checkPassword(contraseñaText.getText())){
+            errorRegistrarse.setText("El formato de la contraseña es invalido.");
+        }else if(!contraseñaText2.getText().equals(contraseñaText.getText())){
+            errorRegistrarse.setText("Las contraseñas no coinciden.");
+        } else{
             Acount.getInstance().registerUser(nombreText.getText(), apellidoText.getText(), correoText.getText(), usuarioText.getText(), contraseñaText.getText(), imagenAvatar.getImage(), LocalDate.now());
             Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } else {
-            Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
