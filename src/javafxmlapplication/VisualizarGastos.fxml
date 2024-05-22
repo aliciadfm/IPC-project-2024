@@ -8,6 +8,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -60,7 +62,7 @@
    <center>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <TableView fx:id="tableView" prefHeight="515.0" prefWidth="948.0">
+            <TableView fx:id="tableView" prefHeight="445.0" prefWidth="730.0">
               <columns>
                 <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
                 <TableColumn fx:id="categoriaC" prefWidth="75.0" text="Categoría" />
@@ -95,4 +97,28 @@
          </padding>
       </HBox>
    </bottom>
+   <right>
+      <VBox prefHeight="465.0" prefWidth="107.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Button fx:id="borrarGasto" mnemonicParsing="false" onAction="#borrar" prefHeight="51.0" prefWidth="58.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/bin.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="editarGasto" mnemonicParsing="false" onAction="#editar" prefHeight="51.0" prefWidth="58.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/pencil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+   </right>
 </BorderPane>
