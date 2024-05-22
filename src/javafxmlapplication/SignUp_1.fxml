@@ -164,7 +164,7 @@
                         <Insets right="20.0" />
                      </GridPane.margin>
                      <children>
-                        <Button mnemonicParsing="false" onAction="#aceptarRegistar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar" />
+                        <Button fx:id="botonAceptar" mnemonicParsing="false" onAction="#aceptarRegistar" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Aceptar" />
                      </children>
                   </HBox>
                </children>

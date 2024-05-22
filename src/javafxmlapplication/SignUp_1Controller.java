@@ -23,6 +23,8 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Acount;
 import java.time.LocalDate;
+import javafx.beans.binding.Bindings;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
@@ -48,6 +50,8 @@ public class SignUp_1Controller implements Initializable {
     private TextField apellidoText;
     @FXML
     private Label errorRegistrarse;
+    @FXML
+    private Button botonAceptar;
 
     /**
      * Initializes the controller class.
@@ -55,6 +59,22 @@ public class SignUp_1Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        botonAceptar.disableProperty().bind(
+                Bindings.createBooleanBinding(()
+                        -> usuarioText.getText().isEmpty()
+                        || nombreText.getText().isEmpty()
+                        || contraseñaText.getText().isEmpty()
+                        || contraseñaText2.getText().isEmpty()
+                        || apellidoText.getText().isEmpty()
+                        || correoText.getText().isEmpty(),
+                        usuarioText.textProperty(),
+                        nombreText.textProperty(),
+                        contraseñaText.textProperty(),
+                        contraseñaText2.textProperty(),
+                        apellidoText.textProperty(),
+                        correoText.textProperty()
+                )
+        );
     }    
 
     @FXML
@@ -88,27 +108,18 @@ public class SignUp_1Controller implements Initializable {
     {   if(email == null){
           return false; 
         }
-       // Regex to check valid email. 
         String regex = "^[\\w!#$%&'*+/=?{|}~^-]+(?:\\.[\\w!#$%&'*+/=?{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        // Compile the ReGex 
         Pattern pattern = Pattern.compile(regex);
-        // Match ReGex with value to check
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
 
-    public static Boolean checkPassword(String password){     
-  
-        // If the password is empty , return false 
+    public static Boolean checkPassword(String password){    
         if (password == null) { 
             return false; 
         } 
-        // Regex to check valid password. 
         String regex =  "^[A-Za-z0-9]{8,15}$"; 
-  
-        // Compile the ReGex 
         Pattern pattern = Pattern.compile(regex); 
-        // Match ReGex with value to check
         Matcher matcher = pattern.matcher(password); 
         return matcher.matches();
     }

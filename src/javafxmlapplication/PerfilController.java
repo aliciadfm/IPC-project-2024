@@ -40,6 +40,8 @@ public class PerfilController implements Initializable {
     private Label perfilContraseñaText;
     @FXML
     private Label perfilNombreText;
+    @FXML
+    private Label perfilApellidoText;
 
     /**
      * Initializes the controller class.
@@ -59,6 +61,7 @@ public class PerfilController implements Initializable {
         perfilCorreoText.setText(user.getEmail());
         perfilUsuarioText.setText(user.getNickName());
         perfilNombreText.setText(user.getName());
+        perfilApellidoText.setText(user.getSurname());
         perfilContraseñaText.setText(user.getPassword());
         
     }    
