@@ -7,6 +7,7 @@ package javafxmlapplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -18,7 +19,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -48,50 +52,100 @@ public class VisualizarGastosController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    
-    ObservableList<Charge> lista = FXCollections.observableArrayList();
+    ObservableList<Charge> lista;
+    ObservableList<String> listaCategorias;
+
     @FXML
     private Button borrarGasto;
     @FXML
     private Button editarGasto;
-    
+    @FXML
+    private ComboBox<String> selecCatBox;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        nombreC.setCellValueFactory(new PropertyValueFactory<>("nombre"));
-        categoriaC.setCellValueFactory(new PropertyValueFactory<>("categoria"));
-        precioC.setCellValueFactory(new PropertyValueFactory<>("precio"));
-        fechaC.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        lista = FXCollections.observableArrayList();
+        listaCategorias = FXCollections.observableArrayList();
         tableView.setItems(lista);
+        nombreC.setCellValueFactory(new PropertyValueFactory<>("name"));
+        categoriaC.setCellValueFactory(new PropertyValueFactory<>("category"));
+        precioC.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        fechaC.setCellValueFactory(new PropertyValueFactory<>("date"));
+        try {
+            for (int i = 0; i < Acount.getInstance().getUserCategories().size() - 1; i++) {
+                listaCategorias.add(Acount.getInstance().getUserCategories().get(i).getName());
+            }
+        } catch (Exception e) {
+        }
+        selecCatBox.setItems(listaCategorias);
         borrarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
         editarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
-    }    
+
+        loadCharges();
+    }
+
+    private void loadCharges() {
+        try {
+            Acount acount = Acount.getInstance();
+            lista.addAll(acount.getUserCharges());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     private void volverVisualizarGastos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ContenedorPrincipal.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
 
-    @FXML
-    private void eliminarCategoria(ActionEvent event)  throws Exception {
-        
+    private Category buscarCategoria(String s) throws Exception {
+        Category cat = null;
+        for (int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
+            if (Acount.getInstance().getUserCategories().get(i).getName().equals(s)) {
+                cat = Acount.getInstance().getUserCategories().get(i);
+                return cat;
+            }
+        }
+        return cat;
     }
 
     @FXML
-    private void borrar(ActionEvent event) {
-        lista.remove(tableView.getSelectionModel().getSelectedIndex());
+    private void eliminarCategoria(ActionEvent event) throws Exception {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("ADVERTENCIA");
+        alert.setContentText("La categoría será eliminada, al igual que los gastos asociados a ella. ¿Desea continuar?");
+        ButtonType cancelButton = new ButtonType("Cancelar");
+        alert.getButtonTypes().add(cancelButton);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Category categoriaSeleccionada = buscarCategoria(selecCatBox.getValue());
+            if (categoriaSeleccionada != null) {
+                Acount.getInstance().removeCategory(categoriaSeleccionada);
+                selecCatBox.getItems().remove(categoriaSeleccionada.getName());
+            }
+        }
+    }
+
+    @FXML
+    private void borrar(ActionEvent event) throws Exception {
+        int index = tableView.getSelectionModel().getSelectedIndex();
+        if (index >= 0) {
+            Charge selectedCharge = tableView.getItems().get(index);
+            Acount.getInstance().removeCharge(selectedCharge);
+            lista.remove(index);
+        }
     }
 
     @FXML
     private void editar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EditarGasto.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
-    
 }

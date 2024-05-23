@@ -47,7 +47,6 @@ public class VisualizarGastoController implements Initializable {
         stage.show();
     }
 
-    @FXML
     private void cancelarEditarGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -56,7 +55,6 @@ public class VisualizarGastoController implements Initializable {
         stage.show();
     }
 
-    @FXML
     private void aceptarEditarGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -64,6 +62,4 @@ public class VisualizarGastoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    
-    
 }
