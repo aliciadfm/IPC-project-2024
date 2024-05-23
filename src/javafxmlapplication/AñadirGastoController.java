@@ -154,49 +154,50 @@ public class AñadirGastoController implements Initializable {
     String descripcion;
 
     @FXML
-    private void añadirCategoria(ActionEvent event) throws Exception {
-        Dialog<Pair<String, String>> dialog = new Dialog<>();
-        dialog.setTitle("Crear nueva categoría");
-        dialog.setHeaderText("Introduce los detalles de la nueva categoría");
+private void añadirCategoria(ActionEvent event) throws Exception {
+    Dialog<Pair<String, String>> dialog = new Dialog<>();
+    dialog.setTitle("Crear nueva categoría");
+    dialog.setHeaderText("Introduce los detalles de la nueva categoría");
 
-        ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
-        dialog.getDialogPane().getButtonTypes().addAll(okButtonType, ButtonType.CANCEL);
+    ButtonType okButtonType = new ButtonType("OK", ButtonBar.ButtonData.OK_DONE);
+    dialog.getDialogPane().getButtonTypes().addAll(okButtonType, ButtonType.CANCEL);
 
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
+    GridPane grid = new GridPane();
+    grid.setHgap(10);
+    grid.setVgap(10);
 
-        TextField nombreField = new TextField();
-        nombreField.setPromptText("Nombre");
-        TextField descripcionField = new TextField();
-        descripcionField.setPromptText("Descripción");
+    TextField nombreField = new TextField();
+    nombreField.setPromptText("Nombre");
+    TextField descripcionField = new TextField();
+    descripcionField.setPromptText("Descripción");
 
-        grid.add(new Label("Nombre:"), 0, 0);
-        grid.add(nombreField, 1, 0);
-        grid.add(new Label("Descripción:"), 0, 1);
-        grid.add(descripcionField, 1, 1);
+    grid.add(new Label("Nombre:"), 0, 0);
+    grid.add(nombreField, 1, 0);
+    grid.add(new Label("Descripción:"), 0, 1);
+    grid.add(descripcionField, 1, 1);
 
-        dialog.getDialogPane().setContent(grid);
+    dialog.getDialogPane().setContent(grid);
 
-        dialog.setResultConverter(dialogButton -> {
-            if (dialogButton == okButtonType) {
-                return new Pair<>(nombreField.getText(), descripcionField.getText());
-            }
-            return null;
-        });
+    dialog.setResultConverter(dialogButton -> {
+        if (dialogButton == okButtonType) {
+            return new Pair<>(nombreField.getText(), descripcionField.getText());
+        }
+        return null;
+    });
 
-        Optional<Pair<String, String>> result = dialog.showAndWait();
+    Optional<Pair<String, String>> result = dialog.showAndWait();
 
-        result.ifPresent(nombreDescripcion -> {
-            try {
-                nombre = nombreDescripcion.getKey();
-                descripcion = nombreDescripcion.getValue();
-                System.out.println("Nombre: " + nombre);
-                System.out.println("Descripción: " + descripcion);
-                Acount.getInstance().registerCategory(nombre, descripcion);
-            } catch (Exception e) {
-            }
-        });
-        listaCategorias.add(Acount.getInstance().getUserCategories().get(Acount.getInstance().getUserCategories().size()).getName());
-    }
+    result.ifPresent(nombreDescripcion -> {
+        try {
+            nombre = nombreDescripcion.getKey();
+            descripcion = nombreDescripcion.getValue();
+            System.out.println("Nombre: " + nombre);
+            System.out.println("Descripción: " + descripcion);
+            Acount.getInstance().registerCategory(nombre, descripcion);
+            listaCategorias.add(nombre);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    });
+}
 }
