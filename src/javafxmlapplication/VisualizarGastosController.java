@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -43,7 +44,7 @@ public class VisualizarGastosController implements Initializable {
     @FXML
     private TableColumn<Charge, String> nombreC;
     @FXML
-    private TableColumn<Charge, Category> categoriaC;
+    private TableColumn<Charge, String> categoriaC;
     @FXML
     private TableColumn<Charge, Integer> precioC;
     @FXML
@@ -72,7 +73,10 @@ public class VisualizarGastosController implements Initializable {
         listaCategorias = FXCollections.observableArrayList();
         tableView.setItems(lista);
         nombreC.setCellValueFactory(new PropertyValueFactory<>("name"));
-        categoriaC.setCellValueFactory(new PropertyValueFactory<>("category"));
+        categoriaC.setCellValueFactory(cellData -> {
+            Category category = cellData.getValue().getCategory();
+            return new SimpleStringProperty(category != null ? category.getName() : "");
+        });
         precioC.setCellValueFactory(new PropertyValueFactory<>("cost"));
         fechaC.setCellValueFactory(new PropertyValueFactory<>("date"));
         try {
@@ -85,7 +89,7 @@ public class VisualizarGastosController implements Initializable {
         borrarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
         editarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
         botonVerGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
-        botonEliminarCategoria.disableProperty().bind(Bindings.equal(selecCatBox.getSelectionModel().selectedIndexProperty(),-1));
+        botonEliminarCategoria.disableProperty().bind(Bindings.equal(selecCatBox.getSelectionModel().selectedIndexProperty(), -1));
         loadCharges();
     }
 
@@ -157,7 +161,7 @@ public class VisualizarGastosController implements Initializable {
     @FXML
     private void pulsarVerGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -96,7 +96,7 @@ public class SignUp_1Controller implements Initializable {
             errorRegistrarse.setText("Las contraseñas no coinciden.");
         } else{
             Acount.getInstance().registerUser(nombreText.getText(), apellidoText.getText(), correoText.getText(), usuarioText.getText(), contraseñaText.getText(), imagenAvatar.getImage(), LocalDate.now());
-            Parent root = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("LoginFxml.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
