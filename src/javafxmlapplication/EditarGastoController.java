@@ -4,11 +4,18 @@
  */
 package javafxmlapplication;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import model.Charge;
 
 /**
  * FXML Controller class
@@ -20,17 +27,29 @@ public class EditarGastoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    private Charge gasto = null;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
 
     @FXML
-    private void CancelarEditarGasto(ActionEvent event) {
+    private void cancelarEditarGasto(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
-    private void AceptarEditarGasto(ActionEvent event) {
+    private void aceptarEditarGasto(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
     
 }

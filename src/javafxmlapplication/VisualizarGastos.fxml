@@ -40,6 +40,11 @@
                         <MenuItem mnemonicParsing="false" text="Imprimir a PDF" />
                      </items>
                   </Menu>
+                  <Menu mnemonicParsing="false" text="Sobre">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Sobre la aplicación" />
+                    </items>
+                  </Menu>
                </menus>
             </MenuBar>
             <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="942.0" styleClass="cabecera" stylesheets="@../icons/estilos.css">
@@ -87,7 +92,7 @@
                   <Insets left="15.0" right="15.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#eliminarCategoria" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Eliminar categoría">
+            <Button fx:id="botonEliminarCategoria" mnemonicParsing="false" onAction="#eliminarCategoria" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Eliminar categoría">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" />
                </HBox.margin></Button>
@@ -100,6 +105,15 @@
    <right>
       <VBox prefHeight="465.0" prefWidth="107.0" spacing="15.0" BorderPane.alignment="TOP_CENTER">
          <children>
+            <Button fx:id="botonVerGasto" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pulsarVerGasto" prefHeight="51.0" prefWidth="58.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css">
+               <graphic>
+                  <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/eye.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
             <Button fx:id="borrarGasto" mnemonicParsing="false" onAction="#borrar" prefHeight="51.0" prefWidth="58.0" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css">
                <graphic>
                   <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">

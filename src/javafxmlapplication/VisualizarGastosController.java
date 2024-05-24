@@ -61,6 +61,10 @@ public class VisualizarGastosController implements Initializable {
     private Button editarGasto;
     @FXML
     private ComboBox<String> selecCatBox;
+    @FXML
+    private Button botonEliminarCategoria;
+    @FXML
+    private Button botonVerGasto;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -80,7 +84,8 @@ public class VisualizarGastosController implements Initializable {
         selecCatBox.setItems(listaCategorias);
         borrarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
         editarGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
-
+        botonVerGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
+        botonEliminarCategoria.disableProperty().bind(Bindings.equal(selecCatBox.getSelectionModel().selectedIndexProperty(),-1));
         loadCharges();
     }
 
@@ -144,6 +149,15 @@ public class VisualizarGastosController implements Initializable {
     private void editar(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EditarGasto.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void pulsarVerGasto(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
