@@ -20,13 +20,18 @@
          <children>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <ImageView fitHeight="59.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icons/user.png" />
-                     </image>
-                  </ImageView>
+                  <Button mnemonicParsing="false" onAction="#pulsarEditarFoto" styleClass="botonPerfil" stylesheets="@../icons/estilos.css">
+                     <graphic>
+                        <ImageView fx:id="fotoPerfil" fitHeight="59.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
+            <ImageView fx:id="cache" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
    </top>

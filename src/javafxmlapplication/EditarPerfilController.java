@@ -4,6 +4,7 @@
  */
 package javafxmlapplication;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,6 +23,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
@@ -49,11 +53,18 @@ public class EditarPerfilController implements Initializable {
     private String ogApellido;
     private String ogEmail;
     private String ogContraseña;
+    private Image ogImagen;
+    private Image newImage;
     private User user = null;
     @FXML
     private Button botonConfirmar;
     @FXML
     private TextField areaApellido;
+    @FXML
+    private ImageView fotoPerfil;
+
+    @FXML
+    private ImageView cache;
 
     /**
      * Initializes the controller class.
@@ -72,17 +83,21 @@ public class EditarPerfilController implements Initializable {
         ogApellido = user.getSurname();
         ogEmail = user.getEmail();
         ogContraseña = user.getPassword();
+        fotoPerfil.setImage(user.getImage());
+        ogImagen = user.getImage();
         botonConfirmar.disableProperty().bind(
                 Bindings.createBooleanBinding(()
                         -> areaCorreo.getText().isEmpty()
-                        && areaNombre.getText().isEmpty()
-                        && areaApellido.getText().isEmpty()
-                        && (areaContraseña1.getText().isEmpty() || areaContraseña2.getText().isEmpty()),
+                && areaNombre.getText().isEmpty()
+                && areaApellido.getText().isEmpty()
+                && (areaContraseña1.getText().isEmpty() || areaContraseña2.getText().isEmpty())
+                && cache.getImage() == null,
                         areaCorreo.textProperty(),
                         areaNombre.textProperty(),
                         areaApellido.textProperty(),
                         areaContraseña1.textProperty(),
-                        areaContraseña2.textProperty()
+                        areaContraseña2.textProperty(),
+                        cache.imageProperty()
                 ));
     }
 
@@ -93,6 +108,7 @@ public class EditarPerfilController implements Initializable {
             user.setSurname(ogApellido);
             user.setEmail(ogEmail);
             user.setPassword(ogContraseña);
+            user.setImage(cache.getImage());
         }
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -118,6 +134,7 @@ public class EditarPerfilController implements Initializable {
                 user.setSurname(ogApellido);
                 user.setEmail(ogEmail);
                 user.setPassword(ogContraseña);
+                user.setImage(cache.getImage());
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setHeaderText("Error al editar el perfil");
                 alert.setContentText("El email no es valido.");
@@ -136,6 +153,7 @@ public class EditarPerfilController implements Initializable {
                         user.setSurname(ogApellido);
                         user.setEmail(ogEmail);
                         user.setPassword(ogContraseña);
+                        user.setImage(cache.getImage());
                         Alert alert = new Alert(AlertType.ERROR);
                         alert.setHeaderText("Error al editar el perfil");
                         alert.setContentText("Las contraseñas no coniciden");
@@ -147,6 +165,7 @@ public class EditarPerfilController implements Initializable {
                     user.setSurname(ogApellido);
                     user.setEmail(ogEmail);
                     user.setPassword(ogContraseña);
+                    user.setImage(cache.getImage());
                     Alert alert = new Alert(AlertType.ERROR);
                     alert.setHeaderText("Error al editar el perfil");
                     alert.setContentText("Las contraseña no tiene un formato valido");
@@ -171,6 +190,26 @@ public class EditarPerfilController implements Initializable {
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+        }
+    }
+
+    @FXML
+    private void pulsarEditarFoto(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Imagen");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Archivos de imagen(.png,.jpg,*.jpeg)",
+                ".png", ".jpg", "*.jpeg");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            try {
+                newImage = new Image(selectedFile.toURI().toString());
+            } catch (Exception e) {
+            }
+            haCambiado = true;
+            cache.setImage(ogImagen);
+            fotoPerfil.setImage(newImage);
+            user.setImage(newImage);
         }
     }
 

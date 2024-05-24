@@ -18,7 +18,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Acount;
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
@@ -37,6 +36,7 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
+import model.AcountDAOException;
 import model.Category;
 
 /**
@@ -83,11 +83,9 @@ public class AñadirGastoController implements Initializable {
             }
         });
 
-        unidadesText.textProperty().addListener(new ChangeListener<String>() {
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    unidadesText.setText(newValue.replaceAll("[^\\d]", ""));
-                }
+        unidadesText.textProperty().addListener((ObservableValue<? extends String> observable, String oldValue, String newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                unidadesText.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
 
@@ -159,7 +157,6 @@ public class AñadirGastoController implements Initializable {
                 image = new javafx.scene.image.Image(selectedFile.toURI().toString());
                 imagenAvatar.setImage(image);
             } catch (Exception e) {
-                e.printStackTrace();
             }
         }
     }
@@ -209,8 +206,7 @@ public class AñadirGastoController implements Initializable {
                 System.out.println("Descripción: " + descripcion);  //??
                 Acount.getInstance().registerCategory(nombre, descripcion);
                 listaCategorias.add(nombre);
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (IOException | AcountDAOException e) {
             }
         });
     }
