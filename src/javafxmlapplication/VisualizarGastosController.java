@@ -11,6 +11,8 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -101,6 +103,7 @@ public class VisualizarGastosController implements Initializable {
             e.printStackTrace();
         }
     }
+    
 
     @FXML
     private void volverVisualizarGastos(ActionEvent event) throws IOException {

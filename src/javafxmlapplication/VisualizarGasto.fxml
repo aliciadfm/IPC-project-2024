@@ -101,27 +101,27 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Label styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" text="Label" />
+                  <Label fx:id="tituloLabel" styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <children>
-                  <Label styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" text="Label" />
+                  <Label fx:id="categoriaLabel" styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <children>
-                  <Label styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" text="Label" />
+                  <Label fx:id="descripcionLabel" styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
-                  <ImageView fitHeight="190.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="imagenAvatar" fitHeight="190.0" fitWidth="190.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </HBox>
             <HBox prefHeight="100.0" prefWidth="358.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
-                  <Label styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" text="Label" />
+                  <Label fx:id="fechaLabel" styleClass="descriptionLabel" stylesheets="@../icons/estilos.css" />
                </children>
             </HBox>
          </children>
