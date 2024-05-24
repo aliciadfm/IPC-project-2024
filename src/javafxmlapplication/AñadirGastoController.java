@@ -19,7 +19,6 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.Acount;
 import javax.swing.*;
-import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.Optional;
@@ -36,8 +35,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.util.Pair;
-import javax.imageio.ImageIO;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import model.Category;
 
 /**
@@ -144,29 +143,25 @@ public class AñadirGastoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-
-    private Image añadirFoto(ActionEvent event) {
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Selecciona una imagen");
-        fileChooser.setAcceptAllFileFilterUsed(false);
-        fileChooser.addChoosableFileFilter(new FileNameExtensionFilter("Archivos de imagen", ImageIO.getReaderFileSuffixes()));
-        int userSelection = fileChooser.showOpenDialog(null);
-        if (userSelection == JFileChooser.APPROVE_OPTION) {
-            File fileToOpen = fileChooser.getSelectedFile();
-            try {
-                return ImageIO.read(fileToOpen);
-            } catch (IOException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(null, "Error al cargar la imagen: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-        return null;
-    }
-
+    
+    Image image;
     @FXML
     private void añadirImagen(ActionEvent event) {
-        Image imagen = añadirFoto(event);
-        //imagenAvatar.setImage(imagen);  //FALLO EN ESTA LÍNEA: la imagen que devuelve y la que recibe el método setImage() no son del mismo paquete. (awt y scene.Scene)
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Imagen");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Archivos de imagen(.png,.jpg,*.jpeg)" ,
+                ".png", ".jpg", "*.jpeg");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            try {
+                image = new javafx.scene.image.Image(selectedFile.toURI().toString());
+                imagenAvatar.setImage(image);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     String nombre;

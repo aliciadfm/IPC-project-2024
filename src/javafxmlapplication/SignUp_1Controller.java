@@ -4,7 +4,8 @@
  */
 package javafxmlapplication;
 
-import java.awt.Image;
+import javafx.scene.image.Image;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +27,7 @@ import java.time.LocalDate;
 import javafx.beans.binding.Bindings;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.FileChooser;
 
 /**
  * FXML Controller class
@@ -122,6 +124,27 @@ public class SignUp_1Controller implements Initializable {
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(password); 
         return matcher.matches();
+    }
+    
+    Image image;
+    
+    @FXML
+    private void seleccionarFoto(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Seleccionar Imagen");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Archivos de imagen(.png,.jpg,*.jpeg)" ,
+                ".png", ".jpg", "*.jpeg");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            try {
+                image = new Image(selectedFile.toURI().toString());
+                imagenAvatar.setImage(image);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

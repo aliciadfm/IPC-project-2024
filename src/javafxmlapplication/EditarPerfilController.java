@@ -120,7 +120,7 @@ public class EditarPerfilController implements Initializable {
                 user.setPassword(ogContraseña);
                 Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setHeaderText("Error al editar el perfil");
-                alert.setContentText("El eail no es valido.");
+                alert.setContentText("El email no es valido.");
                 alert.showAndWait();
             }
         }

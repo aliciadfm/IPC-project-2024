@@ -95,7 +95,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.rowSpan="2">
                      <children>
-                        <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" style="-fx-border-color: transparent;" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
+                        <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#seleccionarFoto" prefHeight="45.0" prefWidth="45.0" style="-fx-border-color: transparent;" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
                            <graphic>
                               <ImageView fx:id="imagenAvatar" fitHeight="67.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
