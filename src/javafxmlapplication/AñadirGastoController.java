@@ -73,7 +73,7 @@ public class AñadirGastoController implements Initializable {
         listaCategorias = FXCollections.observableArrayList();
         categoriaSelec.setItems(listaCategorias);
         try {
-            for (int i = 0; i < Acount.getInstance().getUserCategories().size() - 1; i++) {
+            for (int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
                 listaCategorias.add(Acount.getInstance().getUserCategories().get(i).getName());
             }
         } catch (Exception e) {

@@ -58,7 +58,6 @@ public class ContenedorPrincipalController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            // TODO
             imagen.setImage(Acount.getInstance().getLoggedUser().getImage());
         } catch (AcountDAOException | IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,7 +76,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void pulsarAñadirGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("AñadirGasto.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) bp.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -87,7 +86,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void pulsarVisualizarGastos(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) bp.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(true);
@@ -97,7 +96,7 @@ public class ContenedorPrincipalController implements Initializable {
     @FXML
     private void pulsarPerfil(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Perfil.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) bp.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);
@@ -123,7 +122,6 @@ public class ContenedorPrincipalController implements Initializable {
             stage.setScene(scene);
             stage.setResizable(false);
             stage.show();
-        } else {
         }
     }
 
@@ -136,7 +134,6 @@ public class ContenedorPrincipalController implements Initializable {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             System.exit(0);
-        } else {
         }
     }
 
@@ -235,7 +232,6 @@ public class ContenedorPrincipalController implements Initializable {
             } catch (Exception ex) {
                 Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } else {
         }
     }
 

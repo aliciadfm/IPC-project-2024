@@ -20,16 +20,16 @@
         <menus>
           <Menu mnemonicParsing="false" text="Ventana">
             <items>
-                  <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarSesion" text="Cerrar Sesión" />
-              <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarVantana" text="Cerrar Ventana" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarSesion" text="Cerrar sesión" />
+              <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarVantana" text="Cerrar ventana" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Acciones">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGasto" text="Añadir Gastos" />
-                  <MenuItem mnemonicParsing="false" onAction="#pulsarVisualizarGastos" text="VisualizarGastos" />
-                  <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir Categoria de Gasto" />
-                  <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar Categoria" />
+              <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGasto" text="Añadir gastos" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarVisualizarGastos" text="Visualizar gastos" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir categoria de gasto" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar categoria" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Imprimir">

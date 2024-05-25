@@ -80,7 +80,7 @@ public class VisualizarGastosController implements Initializable {
         precioC.setCellValueFactory(new PropertyValueFactory<>("cost"));
         fechaC.setCellValueFactory(new PropertyValueFactory<>("date"));
         try {
-            for (int i = 0; i < Acount.getInstance().getUserCategories().size() - 1; i++) {
+            for (int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
                 listaCategorias.add(Acount.getInstance().getUserCategories().get(i).getName());
             }
         } catch (Exception e) {
