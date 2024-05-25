@@ -85,6 +85,7 @@ public class VisualizarGastoController implements Initializable {
 
     @FXML
     private void pulsarEditarGasto(ActionEvent event) throws IOException {
+        EditarGastoController.setCharge(getCharge());
         Parent root = FXMLLoader.load(getClass().getResource("EditarGasto.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
