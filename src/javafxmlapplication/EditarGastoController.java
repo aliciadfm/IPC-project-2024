@@ -43,21 +43,11 @@ import model.User;
  * @author alicia
  */
 public class EditarGastoController implements Initializable {
-    private static Charge charge;
-
-    public Charge getCharge() {
-        return charge;
-    }
-
-    public static void setCharge(Charge charge) {
-        EditarGastoController.charge = charge;
-    }
-
-    /**
+   /**
      * Initializes the controller class.
      */
     
-    public Charge gasto = null;
+    public static Charge charge = null;
     @FXML
     private TextField tituloNueva;
     @FXML
@@ -78,8 +68,17 @@ public class EditarGastoController implements Initializable {
     @FXML
     private TextField unidadesNueva;
     
+        public Charge getCharge() {
+        return charge;
+    }
+
+    public static void setCharge(Charge charge) {
+        EditarGastoController.charge = charge;
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        imagenNueva.setImage(charge.getImageScan());
         listaCategorias = FXCollections.observableArrayList();
         categoriaNueva.setItems(listaCategorias);
         
@@ -136,7 +135,7 @@ public class EditarGastoController implements Initializable {
     @FXML
     private void aceptarEditarGasto(ActionEvent event) throws IOException, Exception {
         
-        Acount.getInstance().removeCharge(gasto);
+        Acount.getInstance().removeCharge(charge);
         double coste = Double.parseDouble(costeNuevo.getText());
         int unidades = Integer.parseInt(unidadesNueva.getText());
         String categoria = categoriaNueva.getValue();
@@ -144,7 +143,7 @@ public class EditarGastoController implements Initializable {
         Acount.getInstance().registerCharge(tituloNueva.getText(), descripcionNueva.getText(), coste, unidades, imagenNueva.getImage(), fechaNueva.getValue(), categoria2);
             
         
-        Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
