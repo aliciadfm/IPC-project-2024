@@ -107,7 +107,6 @@ public class ContenedorPrincipalController implements Initializable {
     private void pulsarCerrarSesion(ActionEvent event) throws IOException {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Diálogo de confirmación");
-        alert.setHeaderText("Cabecera");
         alert.setContentText("¿Seguro que quieres continuar?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
@@ -129,7 +128,6 @@ public class ContenedorPrincipalController implements Initializable {
     private void pulsarCerrarVantana(ActionEvent event) {
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Diálogo de confirmación");
-        alert.setHeaderText("Cabecera");
         alert.setContentText("¿Seguro que quieres continuar?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
@@ -143,9 +141,10 @@ public class ContenedorPrincipalController implements Initializable {
         alert.setTitle("Sobre la aplicación");
         alert.setContentText("Esta aplicación ha sido desarrollada por:\n"
                 + "Alicia de Felipe Machancoses\n"
-                + "Adolfo González Tamarit"
+                + "Adolfo González Tamarit\n"
                 + "Unay David Figueroa\n"
                 + "https://github.com/aliciadfm/IPC-project-2024");
+        alert.showAndWait();
     }
 
     @FXML

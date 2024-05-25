@@ -23,16 +23,15 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Ventana">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Cerrar Ventana" />
-                        <MenuItem mnemonicParsing="false" text="Cerrar Sesión" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarVentana" text="Cerrar Ventana" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarCerrarSesion" text="Cerrar Sesión" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Acciones">
                      <items>
-                        <MenuItem mnemonicParsing="false" text="Añadir Gastos" />
-                        <MenuItem mnemonicParsing="false" text="VisualizarGastos" />
-                        <MenuItem mnemonicParsing="false" text="Añadir Categoria de Gasto" />
-                        <MenuItem mnemonicParsing="false" text="Eliminar Categoria" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGastos" text="Añadir Gastos" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir Categoria de Gasto" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar Categoria" />
                      </items>
                   </Menu>
                   <Menu mnemonicParsing="false" text="Imprimir">
@@ -42,7 +41,7 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Sobre">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="Sobre la aplicación" />
+                        <MenuItem mnemonicParsing="false" onAction="#inforApp" text="Sobre la aplicación" />
                     </items>
                   </Menu>
                </menus>
