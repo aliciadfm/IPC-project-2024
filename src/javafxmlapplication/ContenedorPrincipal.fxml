@@ -25,10 +25,10 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Acciones">
             <items>
-              <MenuItem mnemonicParsing="false" text="Añadir Gastos" />
-                  <MenuItem mnemonicParsing="false" text="VisualizarGastos" />
-                  <MenuItem mnemonicParsing="false" text="Añadir Categoria de Gasto" />
-                  <MenuItem mnemonicParsing="false" text="Eliminar Categoria" />
+              <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGasto" text="Añadir Gastos" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarVisualizarGastos" text="VisualizarGastos" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir Categoria de Gasto" />
+                  <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar Categoria" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Imprimir">
@@ -51,7 +51,7 @@
                <children>
                   <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#pulsarPerfil" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
                      <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="imagen" fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../icons/user.png" />
                            </image>

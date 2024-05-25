@@ -31,7 +31,7 @@
                   </Button>
                </children>
             </VBox>
-            <ImageView fx:id="cache" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="cache" fitHeight="10.0" fitWidth="10.0" pickOnBounds="true" preserveRatio="true" visible="false" />
          </children>
       </HBox>
    </top>
