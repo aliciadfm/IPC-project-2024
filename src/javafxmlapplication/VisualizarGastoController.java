@@ -78,7 +78,7 @@ public class VisualizarGastoController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-//uwu gaysex
+
     @FXML
     private void pulsarEliminarGasto(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
