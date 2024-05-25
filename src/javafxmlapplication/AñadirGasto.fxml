@@ -42,8 +42,8 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ComboBox fx:id="categoriaSelec" prefWidth="150.0" promptText="Seleccionar Categoría" stylesheets="@../icons/estilos.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#añadirCategoria" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Categoría" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onAction="#añadirCategoria" prefWidth="112.0" style="-fx-background-color: #8a8a8a;" styleClass="botonAceptarCancelar" stylesheets="@../icons/estilos.css" text="Añadir Categoría" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <ComboBox fx:id="categoriaSelec" prefHeight="25.0" prefWidth="161.0" promptText="Seleccionar Categoría" stylesheets="@../icons/estilos.css" GridPane.columnSpan="2" GridPane.halignment="CENTER" />
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <padding>
                   <Insets left="10.0" />
@@ -58,6 +58,11 @@
                </padding>
                <children>
                   <TextField fx:id="costeText" prefHeight="25.0" prefWidth="50.0" />
+                  <Label text="€">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </Label>
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">

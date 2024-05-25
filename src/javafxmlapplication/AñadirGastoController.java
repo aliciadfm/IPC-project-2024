@@ -120,7 +120,7 @@ public class AñadirGastoController implements Initializable {
         stage.show();
     }
 
-    private static Category buscarCategoria(String s) throws Exception {
+    public static Category buscarCategoria(String s) throws Exception {
         Category cat = null;
         for (int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
             if (Acount.getInstance().getUserCategories().get(i).getName().equals(s)) {
@@ -208,6 +208,7 @@ public class AñadirGastoController implements Initializable {
                 System.out.println("Descripción: " + descripcion);  
                 Acount.getInstance().registerCategory(nombre, descripcion);
                 listaCategorias.add(nombre);
+                categoriaSelec.getSelectionModel().select(nombre);
             } catch (IOException | AcountDAOException e) {
             }
         });

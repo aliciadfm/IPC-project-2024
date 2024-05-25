@@ -45,7 +45,7 @@ import model.User;
 public class EditarGastoController implements Initializable {
 
     public static void setCharge(Charge gastoSeleccionado) {
-        EditarGastoController.gasto = gastoSeleccionado;
+        //EditarGastoController.gasto = gastoSeleccionado;
     }
 
     /**
