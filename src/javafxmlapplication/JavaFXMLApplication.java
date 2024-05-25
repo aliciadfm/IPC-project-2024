@@ -33,6 +33,7 @@ public class JavaFXMLApplication extends Application {
         stage.setScene(scene);
         scene.getStylesheets().addAll("./icons/estilos.css");
         stage.setTitle("Proyecto Gestion");
+        stage.setResizable(false);
         stage.show();
     }
 

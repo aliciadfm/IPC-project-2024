@@ -113,6 +113,7 @@ public class AñadirGastoController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.show();
     }
 
@@ -139,6 +140,7 @@ public class AñadirGastoController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.show();
     }
     
@@ -202,8 +204,8 @@ public class AñadirGastoController implements Initializable {
             try {
                 nombre = nombreDescripcion.getKey();
                 descripcion = nombreDescripcion.getValue();
-                System.out.println("Nombre: " + nombre);            //??
-                System.out.println("Descripción: " + descripcion);  //??
+                System.out.println("Nombre: " + nombre);            
+                System.out.println("Descripción: " + descripcion);  
                 Acount.getInstance().registerCategory(nombre, descripcion);
                 listaCategorias.add(nombre);
             } catch (IOException | AcountDAOException e) {

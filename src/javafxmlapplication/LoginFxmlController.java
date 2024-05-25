@@ -62,6 +62,7 @@ public class LoginFxmlController implements Initializable {
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
+            stage.setResizable(true);
             stage.show();
         } else if(Acount.getInstance().existsLogin(userNick)){
             errorLabel.setText("La contaseña no es correcta.");
@@ -76,6 +77,7 @@ public class LoginFxmlController implements Initializable {
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show(); 
     }
     
