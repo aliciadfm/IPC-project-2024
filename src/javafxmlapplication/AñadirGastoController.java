@@ -120,7 +120,7 @@ public class AñadirGastoController implements Initializable {
         stage.show();
     }
 
-    private Category buscarCategoria(String s) throws Exception {
+    private static Category buscarCategoria(String s) throws Exception {
         Category cat = null;
         for (int i = 0; i < Acount.getInstance().getUserCategories().size(); i++) {
             if (Acount.getInstance().getUserCategories().get(i).getName().equals(s)) {
