@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,6 +23,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import model.Acount;
+import model.AcountDAOException;
 import model.Charge;
 import model.User;
 
@@ -46,12 +49,13 @@ public class VisualizarGastoController implements Initializable {
     @FXML
     private Label fechaLabel;
 
-    Charge charge;
+    private User user;
+    private static Charge charge;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            charge = Acount.getInstance().getUserCharges().get(2);
+            user = Acount.getInstance().getLoggedUser();
             tituloLabel.setText(charge.getName());
             categoriaLabel.setText(charge.getCategory().getName());
             descripcionLabel.setText(charge.getDescription());
@@ -61,12 +65,21 @@ public class VisualizarGastoController implements Initializable {
         }
     }
 
+    public Charge getCharge() {
+        return charge;
+    }
+
+    public static void setCharge(Charge charge) {
+        VisualizarGastoController.charge = charge;
+    }
+
     @FXML
     private void cancelarVisualizarGasto(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(true);
         stage.show();
     }
 
@@ -76,18 +89,32 @@ public class VisualizarGastoController implements Initializable {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 //uwu gaysex
+
     @FXML
-    private void pulsarEliminarGasto(ActionEvent event) {
+    private void pulsarEliminarGasto(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Diálogo de confirmación");
         alert.setHeaderText("Eliminaras el gasto.");
         alert.setContentText("¿Seguro que quieres continuar?");
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-
+            try {
+                Acount.getInstance().removeCharge(charge);
+            } catch (AcountDAOException ex) {
+                Logger.getLogger(VisualizarGastoController.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(VisualizarGastoController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setResizable(true);
+            stage.show();
         } else {
         }
     }
