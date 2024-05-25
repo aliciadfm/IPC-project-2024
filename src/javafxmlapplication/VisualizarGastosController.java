@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,6 +28,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Acount;
 import model.AcountDAOException;
@@ -50,10 +53,6 @@ public class VisualizarGastosController implements Initializable {
     private TableColumn<Charge, Integer> precioC;
     @FXML
     private TableColumn<Charge, Date> fechaC;
-
-    ObservableList<Charge> lista;
-    ObservableList<String> listaCategorias;
-
     @FXML
     private Button borrarGasto;
     @FXML
@@ -64,6 +63,9 @@ public class VisualizarGastosController implements Initializable {
     private Button botonEliminarCategoria;
     @FXML
     private Button botonVerGasto;
+
+    private ObservableList<Charge> lista;
+    private ObservableList<String> listaCategorias;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -89,6 +91,18 @@ public class VisualizarGastosController implements Initializable {
         botonVerGasto.disableProperty().bind(Bindings.equal(tableView.getSelectionModel().selectedIndexProperty(), -1));
         botonEliminarCategoria.disableProperty().bind(Bindings.equal(selecCatBox.getSelectionModel().selectedIndexProperty(), -1));
         loadCharges();
+        tableView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.getButton() == MouseButton.PRIMARY && event.getClickCount() == 2) {
+                    try {
+                        pulsarVerGasto();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
     private void loadCharges() {
@@ -98,11 +112,10 @@ public class VisualizarGastosController implements Initializable {
         } catch (IOException | AcountDAOException e) {
         }
     }
-    
-    protected Charge getGastoSeleccionado(){
+
+    protected Charge getGastoSeleccionado() {
         return tableView.getFocusModel().getFocusedItem();
     }
-    
 
     @FXML
     private void volverVisualizarGastos(ActionEvent event) throws IOException {
@@ -138,6 +151,9 @@ public class VisualizarGastosController implements Initializable {
             if (categoriaSeleccionada != null) {
                 Acount.getInstance().removeCategory(categoriaSeleccionada);
                 selecCatBox.getItems().remove(categoriaSeleccionada.getName());
+                lista.clear();
+                lista.addAll(Acount.getInstance().getUserCharges());
+                tableView.refresh();
             }
         }
     }
@@ -163,10 +179,10 @@ public class VisualizarGastosController implements Initializable {
     }
 
     @FXML
-    private void pulsarVerGasto(ActionEvent event) throws IOException {
+    private void pulsarVerGasto() throws IOException {
         VisualizarGastoController.setCharge(getGastoSeleccionado());
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGasto.fxml"));
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) tableView.getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setResizable(false);

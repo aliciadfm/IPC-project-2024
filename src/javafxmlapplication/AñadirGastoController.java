@@ -60,10 +60,13 @@ public class AñadirGastoController implements Initializable {
     private TextField unidadesText;
     @FXML
     private ImageView imagenAvatar;
-
-    ObservableList<String> listaCategorias;
     @FXML
     private Button botonAceptarAñadirGasto;
+    
+    ObservableList<String> listaCategorias;
+    private String nombre;
+    private String descripcion;
+    private Image image;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -144,7 +147,6 @@ public class AñadirGastoController implements Initializable {
         stage.show();
     }
     
-    Image image;
     @FXML
     private void añadirImagen(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
@@ -163,8 +165,6 @@ public class AñadirGastoController implements Initializable {
         }
     }
 
-    String nombre;
-    String descripcion;
 
     @FXML
     private void añadirCategoria(ActionEvent event) throws Exception {
