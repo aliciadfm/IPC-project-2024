@@ -30,10 +30,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 import model.Acount;
 import model.AcountDAOException;
+import model.User;
 
 /**
  * FXML Controller class
@@ -46,6 +48,9 @@ public class ContenedorPrincipalController implements Initializable {
     private BorderPane bp;
     @FXML
     private ImageView imagen;
+    @FXML
+    private Text bienvenido;
+    private User user = null;
 
     /**
      * Initializes the controller class.
@@ -58,6 +63,15 @@ public class ContenedorPrincipalController implements Initializable {
         } catch (AcountDAOException | IOException ex) {
             Logger.getLogger(ContenedorPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            user = Acount.getInstance().getLoggedUser();
+        } catch (AcountDAOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        bienvenido.setText("Bienvenido " + user.getName() + " !!! :)");
     }
 
     @FXML
