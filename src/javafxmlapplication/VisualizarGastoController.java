@@ -92,15 +92,7 @@ public class VisualizarGastoController implements Initializable {
         stage.setResizable(false);
         stage.show();
     }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-//uwu gaysex
->>>>>>> e504e1e105905be90c680959c2fd1db2f7dd4370
 
-=======
-    
->>>>>>> 37f17577021bb506fb54304e8132d864a2d07b8b
     @FXML
     private void pulsarEliminarGasto(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
