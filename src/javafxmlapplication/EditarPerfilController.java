@@ -80,6 +80,14 @@ public class EditarPerfilController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(PerfilController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        fotoPerfil.setImage(user.getImage());
+        areaCorreo.setText(user.getEmail());
+        areaNombre.setText(user.getName());
+        areaApellido.setText(user.getSurname());
+        areaContraseña1.setText(user.getPassword());
+        areaContraseña2.setText(user.getPassword());
+        
         ogName = user.getName();
         ogApellido = user.getSurname();
         ogEmail = user.getEmail();
