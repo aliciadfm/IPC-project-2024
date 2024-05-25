@@ -130,10 +130,7 @@ public class EditarPerfilController implements Initializable {
     @FXML
     private void aceptarEditarPErfil(ActionEvent event) throws IOException {
         haIntentadoCambiar = false;
-        if (!areaNombre.getText().equals("")) {
-            user.setName(areaNombre.getText());
-            haCambiado = true;
-        }
+        
         if (!areaApellido.getText().equals("")) {
             user.setSurname(areaApellido.getText());
             haCambiado = true;

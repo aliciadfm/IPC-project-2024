@@ -7,9 +7,8 @@ package javafxmlapplication;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -32,7 +31,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.Acount;
-import model.AcountDAOException;
 import model.Category;
 import model.Charge;
 import model.User;
@@ -68,7 +66,15 @@ public class EditarGastoController implements Initializable {
     @FXML
     private TextField unidadesNueva;
     
-        public Charge getCharge() {
+    private Category ogCategoria;
+    private String ogName;
+    private String ogDesc;
+    private Double ogCoste;
+    private int ogUnidades;
+    private LocalDate ogFecha;
+    private Image ogImagen;
+    
+    public Charge getCharge() {
         return charge;
     }
 
@@ -104,26 +110,27 @@ public class EditarGastoController implements Initializable {
             }
         });
         
-        confrimar.disableProperty().bind(
-                Bindings.createBooleanBinding(()
-                        -> tituloNueva.getText().isEmpty()
-                || descripcionNueva.getText().isEmpty()
-                || costeNuevo.getText().isEmpty()
-                || unidadesNueva.getText().isEmpty()
-                || categoriaNueva.getSelectionModel().getSelectedIndex() == -1
-                || fechaNueva.getValue() == null,
-                        tituloNueva.textProperty(),
-                        descripcionNueva.textProperty(),
-                        costeNuevo.textProperty(),
-                        unidadesNueva.textProperty(),
-                        categoriaNueva.getSelectionModel().selectedIndexProperty(),
-                        fechaNueva.valueProperty()
-                )
-        );
+        ogCoste = charge.getCost();
+        ogDesc = charge.getDescription();
+        ogFecha = charge.getDate();
+        ogImagen = charge.getImageScan();
+        ogUnidades = charge.getUnits();
+        ogCategoria = charge.getCategory();
+        ogName = charge.getName();
+        
+        tituloNueva.setText(ogName);
+        descripcionNueva.setText(ogDesc);
+        fechaNueva.setValue(ogFecha);
+        imagenNueva.setImage(ogImagen);
+        costeNuevo.setText(Double.toString(ogCoste));
+        unidadesNueva.setText(Integer.toString(ogUnidades));
+        categoriaNueva.getSelectionModel().select(charge.getCategory().getName());
     }    
 
     @FXML
     private void cancelarEditarGasto(ActionEvent event) throws IOException {
+        
+        
         Parent root = FXMLLoader.load(getClass().getResource("VisualizarGastos.fxml"));
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
