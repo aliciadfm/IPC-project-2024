@@ -99,7 +99,7 @@
                            <graphic>
                               <ImageView fx:id="imagenAvatar" fitHeight="67.0" fitWidth="122.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../icons/FotoDePrueba.png" />
+                                    <Image url="@../icons/user.png" />
                                  </image>
                               </ImageView>
                            </graphic>
