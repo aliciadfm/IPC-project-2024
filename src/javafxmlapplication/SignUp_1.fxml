@@ -75,7 +75,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
-                        <PasswordField fx:id="contraseñaText" prefWidth="190.0" promptText="Contraseña de 8 a 15 caracteres" />
+                        <PasswordField fx:id="contraseñaText" prefWidth="190.0" promptText="Contraseña de 6 a 15 caracteres" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
@@ -85,7 +85,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <PasswordField fx:id="contraseñaText2" prefWidth="190.0" promptText="Contraseña de 8 a 15 caracteres" />
+                        <PasswordField fx:id="contraseñaText2" prefWidth="190.0" promptText="Contraseña de 6 a 15 caracteres" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">

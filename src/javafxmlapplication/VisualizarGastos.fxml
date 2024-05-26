@@ -29,7 +29,7 @@
                   </Menu>
                   <Menu mnemonicParsing="false" text="Acciones">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGastos" text="Añadir Gastos" />
+                        <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGastos" text="Añadir Gasto" />
                         <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir Categoria de Gasto" />
                         <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar Categoria" />
                      </items>

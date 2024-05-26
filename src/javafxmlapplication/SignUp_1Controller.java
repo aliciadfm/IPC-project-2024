@@ -122,7 +122,7 @@ public class SignUp_1Controller implements Initializable {
         if (password == null) { 
             return false; 
         } 
-        String regex =  "^[A-Za-z0-9]{8,15}$"; 
+        String regex =  "^[A-Za-z0-9]{6,15}$"; 
         Pattern pattern = Pattern.compile(regex); 
         Matcher matcher = pattern.matcher(password); 
         return matcher.matches();
