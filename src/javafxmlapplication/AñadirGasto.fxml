@@ -134,11 +134,11 @@
                   <Insets right="10.0" />
                </opaqueInsets>
                <children>
-                  <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#añadirImagen" prefHeight="45.0" prefWidth="45.0" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
+                  <Button maxHeight="45.0" maxWidth="45.0" minHeight="45.0" minWidth="45.0" mnemonicParsing="false" onAction="#añadirImagen" prefHeight="45.0" prefWidth="45.0" style="-fx-border-color: transparent;" styleClass="botonPerfil" stylesheets="@../icons/estilos.css" textAlignment="CENTER">
                      <graphic>
                         <ImageView fx:id="imagenAvatar" fitHeight="95.0" fitWidth="118.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../icons/FotoDePrueba.png" />
+                              <Image url="@../icons/bill.png" />
                            </image>
                         </ImageView>
                      </graphic>

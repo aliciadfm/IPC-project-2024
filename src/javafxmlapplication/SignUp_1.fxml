@@ -45,7 +45,7 @@
                   <HBox prefHeight="100.0" prefWidth="200.0" />
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="459.0" GridPane.columnIndex="1">
                      <children>
-                        <TextField fx:id="usuarioText" prefHeight="26.0" prefWidth="130.0" />
+                        <TextField fx:id="usuarioText" prefHeight="26.0" prefWidth="130.0" promptText="Nickname" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
@@ -55,7 +55,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <TextField fx:id="nombreText" prefHeight="26.0" prefWidth="130.0" />
+                        <TextField fx:id="nombreText" prefHeight="26.0" prefWidth="130.0" promptText="Tu nombre" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
@@ -65,7 +65,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <TextField fx:id="correoText" prefWidth="220.0" />
+                        <TextField fx:id="correoText" prefWidth="220.0" promptText="correo@dominio.es" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
@@ -75,7 +75,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <children>
-                        <PasswordField fx:id="contraseñaText" prefWidth="180.0" />
+                        <PasswordField fx:id="contraseñaText" prefWidth="190.0" promptText="Contraseña de 8 a 15 caracteres" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="5">
@@ -85,7 +85,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <children>
-                        <PasswordField fx:id="contraseñaText2" prefWidth="180.0" />
+                        <PasswordField fx:id="contraseñaText2" prefWidth="190.0" promptText="Contraseña de 8 a 15 caracteres" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="6">
@@ -121,7 +121,7 @@
                   </HBox>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <TextField fx:id="apellidoText" prefHeight="26.0" prefWidth="180.0" />
+                        <TextField fx:id="apellidoText" prefHeight="26.0" prefWidth="180.0" promptText="Tus apellidos" />
                      </children>
                   </HBox>
                   <Label fx:id="errorRegistrarse" styleClass="errorLabel" stylesheets="@../icons/estilos.css" GridPane.columnIndex="1" GridPane.rowIndex="8" />

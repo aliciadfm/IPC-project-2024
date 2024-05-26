@@ -26,7 +26,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Acciones">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGasto" text="Añadir gastos" />
+              <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirGasto" text="Añadir gasto" />
                   <MenuItem mnemonicParsing="false" onAction="#pulsarVisualizarGastos" text="Visualizar gastos" />
                   <MenuItem mnemonicParsing="false" onAction="#pulsarAñadirCategoria" text="Añadir categoria de gasto" />
                   <MenuItem mnemonicParsing="false" onAction="#pulsarEliminarCategoria" text="Eliminar categoria" />
@@ -64,7 +64,7 @@
                      </HBox.margin>
                   </Button>
                </children></HBox>
-            <Button mnemonicParsing="false" onAction="#pulsarAñadirGasto" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Añadir Gastos" textAlignment="RIGHT">
+            <Button mnemonicParsing="false" onAction="#pulsarAñadirGasto" styleClass="botonesPrincipales" stylesheets="@../icons/estilos.css" text="   Añadir Gasto" textAlignment="RIGHT">
                <VBox.margin>
                   <Insets bottom="12.0" left="40.0" top="24.0" />
                </VBox.margin>
